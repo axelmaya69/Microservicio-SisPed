@@ -6,8 +6,23 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="SistemaPedidos" />
+        <module name="microservicio-servicio" />
+        <module name="microservicio-eureka" />
+        <module name="microservicio-pedido" />
+        <module name="microservicio-cliente" />
+        <module name="microservicio-config-server" />
+        <module name="microservicio-gateway" />
       </profile>
     </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="microservicio-cliente" options="-parameters" />
+      <module name="microservicio-config-server" options="-parameters" />
+      <module name="microservicio-eureka" options="-parameters" />
+      <module name="microservicio-gateway" options="-parameters" />
+      <module name="microservicio-pedido" options="-parameters" />
+      <module name="microservicio-servicio" options="-parameters" />
+    </option>
   </component>
 </project>
