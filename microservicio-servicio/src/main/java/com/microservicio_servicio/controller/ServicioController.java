@@ -32,5 +32,10 @@ public class ServicioController {
         return ResponseEntity.ok(unServicio);
     }
 
+    @GetMapping("/search-my-pedido/{idPedido}")
+    public ResponseEntity<?> obtenerPedido(@PathVariable int idPedido){
+        return ResponseEntity.ok(serviceServ.findByPedidoId(idPedido));
+    }
     
+
 }
