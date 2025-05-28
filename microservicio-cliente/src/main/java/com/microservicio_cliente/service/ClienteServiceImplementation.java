@@ -42,7 +42,7 @@ public class ClienteServiceImplementation implements  IClienteService{
             updateCliente.setApellidoP(cliente.getApellidoP());
             updateCliente.setApellidoM(cliente.getApellidoM());
             updateCliente.setEmail(cliente.getEmail());
-            updateCliente.setPedidoId(cliente.getPedidoId());
+            updateCliente.setIdpedido(cliente.getIdpedido());
             return Intcliente.save(updateCliente);
         }return null;
     }
