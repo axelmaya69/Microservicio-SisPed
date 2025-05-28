@@ -46,4 +46,9 @@ public class ServicioController {
         return ResponseEntity.ok("Editado");
     }
 
+    @DeleteMapping("/delete/{idServicio}")
+    public ResponseEntity<?> deleteService(@PathVariable int idServicio){
+        serviceServ.eliminarServicio(idServicio);
+        return ResponseEntity.ok("eliminado");
+    }
 }
