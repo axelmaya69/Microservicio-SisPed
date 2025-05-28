@@ -5,10 +5,7 @@ import com.microservicio_servicio.service.IServiceServ;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,6 +32,12 @@ public class ServicioController {
     @GetMapping("/search-my-pedido/{idPedido}")
     public ResponseEntity<?> obtenerPedido(@PathVariable int idPedido){
         return ResponseEntity.ok(serviceServ.findByPedidoId(idPedido));
+    }
+
+    @PostMapping("/post")
+    public ResponseEntity<?> crearServicio(@RequestBody Servicio servicio){
+        Servicio crearServicio = serviceServ.crearServicio(servicio);
+        return ResponseEntity.ok(crearServicio);
     }
     
 
