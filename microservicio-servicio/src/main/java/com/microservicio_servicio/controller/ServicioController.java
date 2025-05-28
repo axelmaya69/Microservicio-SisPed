@@ -39,6 +39,11 @@ public class ServicioController {
         Servicio crearServicio = serviceServ.crearServicio(servicio);
         return ResponseEntity.ok(crearServicio);
     }
-    
+
+    @PutMapping("/put/idServicio")
+    public ResponseEntity<?> editarServicio(@PathVariable int idServicio, @RequestBody Servicio servicio){
+        Servicio updateService = serviceServ.actualizarServicio(idServicio,servicio);
+        return ResponseEntity.ok("Editado");
+    }
 
 }
