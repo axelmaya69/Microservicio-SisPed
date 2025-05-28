@@ -13,34 +13,40 @@ public class ServicioImplementation implements IServiceServ{
     @Autowired
     IServicio IntServ;
 
-
-    @Override
-    public Servicio actualizarServicio(int idServicio, Servicio servicio) {
-        return null;
-    }
-
     @Override
     public Servicio crearServicio(Servicio servicio) {
-        return null;
+        return IntServ.save(servicio);
     }
 
     @Override
     public Servicio obtenerServicio(int idServicio) {
-        return null;
+        return IntServ.findById(idServicio).orElseThrow();
     }
 
     @Override
     public List<Servicio> obtenerTodosServicios() {
-        return List.of();
+        return IntServ.findAll();
     }
 
     @Override
     public List<Servicio> findByPedidoId(int idPedido) {
-        return List.of();
+        return IntServ.findAllByPedidoId(idPedido);
     }
 
     @Override
+    public Servicio actualizarServicio(int idServicio, Servicio servicio) {
+        Servicio updateServicio = IntServ.findById(idServicio).get();
+        if(IntServ.existsById(idServicio)){
+            updateServicio.setNombre(servicio.getNombre());
+            updateServicio.setDescripcion(servicio.getDescripcion());
+            updateServicio.setPrecio(servicio.getPrecio());
+            updateServicio.setCantidad(servicio.getCantidad());
+            updateServicio.setIdPedido(servicio.getIdPedido());
+        }
+        return null;
+    }
+    @Override
     public void eliminarServicio(int idServicio) {
-
+    IntServ.deleteById(idServicio);
     }
 }
