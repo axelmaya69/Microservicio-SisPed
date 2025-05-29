@@ -12,8 +12,6 @@ public interface IServiceServ {
 
     List <Servicio> obtenerTodosServicios();
 
-    List<Servicio> findByPedidoId(int idPedido);
-
     Servicio actualizarServicio(int idServicio, Servicio servicio);
 
     void eliminarServicio(int idServicio);

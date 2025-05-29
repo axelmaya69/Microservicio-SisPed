@@ -11,7 +11,7 @@ import java.util.List;
 public class ServicioImplementation implements IServiceServ{
 
     @Autowired
-    IServicio IntServ;
+    private IServicio IntServ;
 
     @Override
     public Servicio crearServicio(Servicio servicio) {
@@ -28,10 +28,7 @@ public class ServicioImplementation implements IServiceServ{
         return IntServ.findAll();
     }
 
-    @Override
-    public List<Servicio> findByPedidoId(int idPedido) {
-        return IntServ.findAllByPedidoId(idPedido);
-    }
+
 
     @Override
     public Servicio actualizarServicio(int idServicio, Servicio servicio) {
@@ -40,8 +37,7 @@ public class ServicioImplementation implements IServiceServ{
             updateServicio.setNombre(servicio.getNombre());
             updateServicio.setDescripcion(servicio.getDescripcion());
             updateServicio.setPrecio(servicio.getPrecio());
-            updateServicio.setCantidad(servicio.getCantidad());
-            updateServicio.setIdPedido(servicio.getIdPedido());
+            return IntServ.save(updateServicio);
         }
         return null;
     }

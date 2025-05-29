@@ -23,7 +23,4 @@ public class Servicio {
 
     private float precio;
 
-    private int cantidad;
-
-    private int idPedido;
 }
