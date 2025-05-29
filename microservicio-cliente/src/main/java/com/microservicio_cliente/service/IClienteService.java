@@ -14,8 +14,6 @@ public interface IClienteService {
 
     List<Cliente> obtenerTodosLosClientes();
 
-    List<Cliente> findByPedidoId(int idPedido);
-
     Cliente actualizarCliente(int idCliente, Cliente cliente);
 
     void eliminarCliente(int idCliente);
