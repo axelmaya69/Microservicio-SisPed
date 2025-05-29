@@ -9,6 +9,4 @@ import java.util.List;
 
 @Repository
 public interface ICliente extends JpaRepository<Cliente, Integer> {
-
-    List<Cliente> findAllByPedidoId(int idPedido);
 }
