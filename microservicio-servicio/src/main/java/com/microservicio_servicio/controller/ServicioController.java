@@ -14,7 +14,7 @@ import java.util.List;
 public class ServicioController {
 
     @Autowired
-    IServiceServ serviceServ;
+    private IServiceServ serviceServ;
 
 
     @GetMapping("/get")
@@ -27,11 +27,6 @@ public class ServicioController {
     public ResponseEntity<?> obtenerId(@PathVariable int idServicio){
         Servicio unServicio = serviceServ.obtenerServicio(idServicio);
         return ResponseEntity.ok(unServicio);
-    }
-
-    @GetMapping("/search-my-pedido/{idPedido}")
-    public ResponseEntity<?> obtenerPedido(@PathVariable int idPedido){
-        return ResponseEntity.ok(serviceServ.findByPedidoId(idPedido));
     }
 
     @PostMapping("/post")
