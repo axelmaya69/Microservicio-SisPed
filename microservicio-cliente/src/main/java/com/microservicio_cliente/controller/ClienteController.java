@@ -14,7 +14,7 @@ import java.util.List;
 public class ClienteController {
 
     @Autowired
-    IClienteService clienteService;
+    private IClienteService clienteService;
 
 
     @GetMapping("/get")
@@ -28,12 +28,6 @@ public class ClienteController {
         Cliente cliente = clienteService.obtenerClienteById(idCliente);
         return ResponseEntity.ok(cliente);
     }
-
-    @GetMapping("/search-my-pedido/{idPedido}")
-    public ResponseEntity<?> obtenerPedido(@PathVariable int idPedido){
-        return ResponseEntity.ok(clienteService.findByPedidoId(idPedido));
-    }
-
 
     @PostMapping("/post")
     public ResponseEntity<?> publciarCliente(@RequestBody Cliente cliente){
