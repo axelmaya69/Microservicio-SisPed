@@ -1,5 +1,6 @@
 package com.microservicio_pedido.controller;
 
+import com.microservicio_pedido.controller.DTO.CrearPedidoDTO;
 import com.microservicio_pedido.controller.DTO.PedidoDTO;
 import com.microservicio_pedido.entity.Pedido;
 import com.microservicio_pedido.entity.PedidoProducto;
@@ -38,9 +39,9 @@ public class PedidoController {
     }
      */
     @PostMapping("/post")
-    public ResponseEntity<PedidoDTO> crearPedido(@RequestBody CrearPedidoDTO pedidoDTO){
-        PedidoDTO pedidoDTO = pedidoService.crearPedido(pedidoDTO);
-        return new ResponseEntity<>(pedidoDTO, HttpStatus.CREATED);
+    public ResponseEntity<PedidoDTO> crearPedido(@RequestBody CrearPedidoDTO dto){
+        PedidoDTO nuevopedidoDTO = pedidoService.crearPedido(dto);
+        return new ResponseEntity<>(nuevopedidoDTO, HttpStatus.CREATED);
     }
 
     @PutMapping("/put/{idPedido}")
