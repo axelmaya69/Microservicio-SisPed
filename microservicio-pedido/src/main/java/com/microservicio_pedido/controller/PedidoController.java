@@ -27,11 +27,15 @@ public class PedidoController {
         return ResponseEntity.ok(obtenerPed);
     }
 
+    /*
     @PostMapping("/post")
     public ResponseEntity<?> crearPedido(@RequestBody Pedido pedido){
         Pedido crearPedido = pedidoService.crearPedido(pedido);
         return ResponseEntity.ok(crearPedido);
     }
+     */
+    @PostMapping("/post")
+    public ResponseEntity<>
 
     @PutMapping("/put/{idPedido}")
     public ResponseEntity<?> editarPedido(@PathVariable int idPedido, @RequestBody Pedido pedido){
