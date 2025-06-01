@@ -1,5 +1,7 @@
 package com.microservicio_pedido.controller;
 
+import com.microservicio_pedido.controller.DTO.CrearPedidoDTO;
+import com.microservicio_pedido.controller.DTO.CrearPedidoProductoDTO;
 import com.microservicio_pedido.controller.DTO.PedidoProductoDTO;
 import com.microservicio_pedido.entity.PedidoProducto;
 import com.microservicio_pedido.service.IPedidoProductoService;
@@ -35,7 +37,7 @@ public class PedidoProductoController {
     }
  */
     @PostMapping("/post")
-    public ResponseEntity<PedidoProductoDTO> agregarProducto(@RequestBody PedidoProductoDTO dto){
+    public ResponseEntity<PedidoProductoDTO> agregarProducto(@RequestBody CrearPedidoProductoDTO dto){
         PedidoProductoDTO nuevo = pedidoProductoService.crearPedido(dto);
         return new ResponseEntity<>(nuevo, HttpStatus.CREATED);
     }
