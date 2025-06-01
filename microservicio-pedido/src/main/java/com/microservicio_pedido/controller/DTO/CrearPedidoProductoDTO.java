@@ -13,5 +13,4 @@ public class CrearPedidoProductoDTO {
 
     private Integer cantidad;
 
-    private float precioUnitario;
 }
