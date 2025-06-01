@@ -2,6 +2,7 @@ package com.microservicio_pedido.controller;
 
 import com.microservicio_pedido.controller.DTO.CrearPedidoDTO;
 import com.microservicio_pedido.controller.DTO.PedidoDTO;
+import com.microservicio_pedido.controller.DTO.PedidoDetalleDTO;
 import com.microservicio_pedido.entity.Pedido;
 import com.microservicio_pedido.entity.PedidoProducto;
 import com.microservicio_pedido.service.IPedidoService;
@@ -23,6 +24,11 @@ public class PedidoController {
     public ResponseEntity<?> obtenerTodos(){
         List<Pedido> obtenerPedidos = pedidoService.obtenerPedidos();
         return ResponseEntity.ok(obtenerPedidos);
+    }
+
+    @GetMapping("get/{idPedido}/detalle")
+    public ResponseEntity<PedidoDetalleDTO> obtenerDetalle(@PathVariable int id) {
+        return ResponseEntity.ok(pedidoService.obtenerDetalle(id));
     }
 
     @GetMapping("get/{idPedido}")
