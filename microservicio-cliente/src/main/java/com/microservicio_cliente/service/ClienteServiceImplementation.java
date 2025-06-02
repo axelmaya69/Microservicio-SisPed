@@ -30,11 +30,6 @@ public class ClienteServiceImplementation implements  IClienteService{
     }
 
     @Override
-    public List<Cliente> findByPedidoId(int idPedido) {
-        return Intcliente.findAllByPedidoId(idPedido);
-    }
-
-    @Override
     public Cliente actualizarCliente(int idCliente, Cliente cliente) {
         Cliente updateCliente = Intcliente.findById(idCliente).get();
         if(Intcliente.existsById(idCliente)){
