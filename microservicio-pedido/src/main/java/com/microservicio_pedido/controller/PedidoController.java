@@ -14,9 +14,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("/api/pedido")
 @RestController
+@RequestMapping("/api/pedido")
 public class PedidoController {
+
     @Autowired
     private IPedidoService pedidoService;
 
@@ -25,6 +26,12 @@ public class PedidoController {
         List<Pedido> obtenerPedidos = pedidoService.obtenerPedidos();
         return ResponseEntity.ok(obtenerPedidos);
     }
+
+    @GetMapping("/ping")
+    public String ping() {
+        return "Microservicio pedido activo";
+    }
+
 
     @GetMapping("get/{idPedido}/detalle")
     public ResponseEntity<PedidoDetalleDTO> obtenerDetalle(@PathVariable int id) {
