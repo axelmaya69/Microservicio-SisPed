@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(name = "microservicio-cliente",url = "localhost:8585/api/cliente")
+@FeignClient(name = "microservice-cliente",url = "localhost:9090/api/cliente")
 public interface IClientePedidoProducto {
 
     /*
