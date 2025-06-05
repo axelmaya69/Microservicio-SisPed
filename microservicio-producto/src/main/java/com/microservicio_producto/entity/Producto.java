@@ -1,4 +1,4 @@
-package com.microservicio_servicio.entity;
+package com.microservicio_producto.entity;
 
 
 import jakarta.persistence.Entity;

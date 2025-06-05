@@ -8,7 +8,7 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 	<groupId>com.servicio</groupId>
-	<artifactId>microservicio-servicio</artifactId>
+	<artifactId>microservicio-producto</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>microservicio-servicio</name>
 	<description>msvc-servicio</description>
@@ -27,7 +27,7 @@
 	</scm>
 	<properties>
 		<java.version>17</java.version>
-		<spring-cloud.version>2025.0.0-RC1</spring-cloud.version>
+		<spring-cloud.version>2024.0.1</spring-cloud.version>
 	</properties>
 	<dependencies>
 		<dependency>
