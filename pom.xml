@@ -16,7 +16,7 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>microservicio-servicio</module>
+    <module>microservicio-producto</module>
     <module>microservicio-pedido</module>
     <module>microservicio-gateway</module>
     <module>microservicio-eureka</module>
