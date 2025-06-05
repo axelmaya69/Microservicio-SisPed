@@ -13,7 +13,7 @@ public interface IPedidoProductoService {
 
 //PedidoProducto crearPedidoProducto(PedidoProducto pedidoProducto);
 
-    PedidoProductoDTO crearPedido(CrearPedidoProductoDTO dto);
+    PedidoProducto crearPedidoProducto();
 
     PedidoProducto obtenerPedidoProducto(int idPedidoProducto);
 
