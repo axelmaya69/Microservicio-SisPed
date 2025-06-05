@@ -15,9 +15,11 @@ public class Pedido {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    //PK
+    private int idPedido;
 
-    private int clienteId;
+    //FK
+    private int idCliente;
 
     private LocalDate fecha;
 
