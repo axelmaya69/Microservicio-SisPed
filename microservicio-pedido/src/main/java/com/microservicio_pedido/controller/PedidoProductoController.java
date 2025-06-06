@@ -1,8 +1,5 @@
 package com.microservicio_pedido.controller;
 
-import com.microservicio_pedido.controller.DTO.CrearPedidoDTO;
-import com.microservicio_pedido.controller.DTO.CrearPedidoProductoDTO;
-import com.microservicio_pedido.controller.DTO.PedidoProductoDTO;
 import com.microservicio_pedido.entity.PedidoProducto;
 import com.microservicio_pedido.service.IPedidoProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,17 +27,11 @@ public class PedidoProductoController {
         PedidoProducto obtenerPed = pedidoProductoService.obtenerPedidoProducto(idPedidoProd);
         return ResponseEntity.ok(obtenerPed);
     }
-/*
+
     @PostMapping("/post")
     public ResponseEntity<?> crearPedidoProd(@RequestBody PedidoProducto pedidoProducto){
         PedidoProducto crearPedidoProducto = pedidoProductoService.crearPedidoProducto(pedidoProducto);
         return ResponseEntity.ok(crearPedidoProducto);
-    }
- */
-    @PostMapping("/post")
-    public ResponseEntity<PedidoProductoDTO> agregarProducto(@RequestBody CrearPedidoProductoDTO dto){
-        PedidoProductoDTO nuevo = pedidoProductoService.crearPedido(dto);
-        return new ResponseEntity<>(nuevo, HttpStatus.CREATED);
     }
 
     @PutMapping("/put/{idPedidoProd}")
