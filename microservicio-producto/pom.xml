@@ -7,11 +7,11 @@
 		<artifactId>SistemaPedidos</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
-	<groupId>com.servicio</groupId>
+	<groupId>com.producto</groupId>
 	<artifactId>microservicio-producto</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>microservicio-servicio</name>
-	<description>msvc-servicio</description>
+	<name>microservicio-producto</name>
+	<description>msvc-producto</description>
 	<url/>
 	<licenses>
 		<license/>
