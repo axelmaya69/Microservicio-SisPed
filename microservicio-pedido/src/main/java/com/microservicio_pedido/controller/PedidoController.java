@@ -2,11 +2,8 @@ package com.microservicio_pedido.controller;
 
 
 import com.microservicio_pedido.entity.Pedido;
-import com.microservicio_pedido.entity.PedidoProducto;
 import com.microservicio_pedido.service.IPedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,9 +22,9 @@ public class PedidoController {
         return ResponseEntity.ok(obtenerPedidos);
     }
 
-    @GetMapping("/ping")
-    public String ping() {
-        return "Microservicio pedido activo";
+    @GetMapping("/search-client/{id}")
+    public ResponseEntity<?> findClientByIdPedido(@PathVariable int id){
+        return ResponseEntity.ok(pedidoService.findClientesByIdPedido(id));
     }
 
 
