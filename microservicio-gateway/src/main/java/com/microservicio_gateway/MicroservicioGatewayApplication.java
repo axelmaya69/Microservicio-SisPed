@@ -10,5 +10,5 @@ public class MicroservicioGatewayApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MicroservicioGatewayApplication.class, args);
 	}
-
+ 
 }
