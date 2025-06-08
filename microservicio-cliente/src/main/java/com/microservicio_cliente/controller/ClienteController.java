@@ -29,11 +29,6 @@ public class ClienteController {
         return ResponseEntity.ok(cliente);
     }
 
-    @GetMapping("/search-my-pedido/{id}")
-    public ResponseEntity<?> findByIdPedido(@PathVariable int id){
-        return ResponseEntity.ok(clienteService.findByPedidoId(id));
-    }
-
     @PostMapping("/post")
     public ResponseEntity<?> publciarCliente(@RequestBody Cliente cliente){
         Cliente postCliente = clienteService.crearCliente(cliente);
