@@ -1,6 +1,9 @@
 package com.microservicio_pedido.service;
 
+import com.microservicio_pedido.cliente.ICliente;
+import com.microservicio_pedido.controller.DTO.ClienteDTO;
 import com.microservicio_pedido.entity.Pedido;
+import com.microservicio_pedido.http.responses.ClienteByPedidoResponse;
 import com.microservicio_pedido.repository.IPedido;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +17,8 @@ public class PedidoServiceImplementation implements IPedidoService{
     @Autowired
     private IPedido iPedido;
 
+    @Autowired
+    ICliente iCliente;
 
     @Override
     public Pedido crearPedido(Pedido pedido) {
@@ -24,6 +29,19 @@ public class PedidoServiceImplementation implements IPedidoService{
     @Override
     public Pedido obtenerPedido(int idPedido) {
         return iPedido.findById(idPedido).orElseThrow();
+    }
+
+    @Override
+    public ClienteByPedidoResponse findClientesByIdPedido(int id) {
+        Pedido pedido = iPedido.findById(id).orElse(new Pedido());
+
+        List<ClienteDTO> clienteDTOList = iCliente.findAllClientsByPedido(id);
+        return ClienteByPedidoResponse.builder()
+                .idCliente(pedido.getIdCliente())
+                .fecha(pedido.getFecha())
+                .clienteDTO(clienteDTOList)
+                .build();
+
     }
 
     @Override
