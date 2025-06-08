@@ -18,11 +18,14 @@ spring:
           uri: http://localhost:9090
           predicates:
             - Path=/api/cliente/**
-        - id: servicio
+
+        - id: producto
           uri: http://localhost:9091
           predicates:
-            - Path=/api/servicio/**
+            - Path=/api/producto/**
+
         - id: pedido
           uri: http://localhost:9092
           predicates:
             - Path=/api/pedido/**,/api/pedidoproducto/**
+
