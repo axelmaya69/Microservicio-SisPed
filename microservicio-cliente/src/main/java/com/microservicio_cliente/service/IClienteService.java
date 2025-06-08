@@ -12,7 +12,7 @@ public interface IClienteService {
 
     Cliente obtenerClienteById(int idCliente);
 
-    List<Cliente> findByPedidoId(int id);
+
 
     List<Cliente> obtenerTodosLosClientes();
 
