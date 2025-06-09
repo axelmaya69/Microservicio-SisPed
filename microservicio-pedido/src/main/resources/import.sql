@@ -1,0 +1,10 @@
+INSERT INTO pedido (id_cliente, fecha) VALUES (1, '2025-06-01');
+INSERT INTO pedido (id_cliente, fecha) VALUES (2, '2025-06-02');
+INSERT INTO pedido (id_cliente, fecha) VALUES (3, '2025-06-03');
+INSERT INTO pedido (id_cliente, fecha) VALUES (1, '2025-06-04');
+INSERT INTO pedido (id_cliente, fecha) VALUES (4, '2025-06-05');
+INSERT INTO pedido (id_cliente, fecha) VALUES (5, '2025-06-06');
+INSERT INTO pedido (id_cliente, fecha) VALUES (2, '2025-06-07');
+INSERT INTO pedido (id_cliente, fecha) VALUES (3, '2025-06-08');
+INSERT INTO pedido (id_cliente, fecha) VALUES (1, '2025-06-09');
+INSERT INTO pedido (id_cliente, fecha) VALUES (4, '2025-06-10');
