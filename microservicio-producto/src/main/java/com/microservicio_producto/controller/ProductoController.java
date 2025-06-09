@@ -1,8 +1,7 @@
-package com.microservicio_servicio.controller;
+package com.microservicio_producto.controller;
 
-import com.microservicio_servicio.entity.Servicio;
-import com.microservicio_servicio.service.IServiceServ;
-import lombok.Getter;
+import com.microservicio_producto.entity.Producto;
+import com.microservicio_producto.service.IProductoServ;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,40 +9,40 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/servicio")
-public class ServicioController {
+@RequestMapping("/api/producto")
+public class ProductoController {
 
     @Autowired
-    private IServiceServ serviceServ;
+    private IProductoServ productoServ;
 
 
     @GetMapping("/get")
     public ResponseEntity<?> obtenerTodos(){
-        List<Servicio> servicios = serviceServ.obtenerTodosServicios();
-        return ResponseEntity.ok(servicios);
+        List<Producto> productos = productoServ.obtenerTodosProductos();
+        return ResponseEntity.ok(productos);
     }
 
-    @GetMapping("/get/{idServicio}")
-    public ResponseEntity<?> obtenerId(@PathVariable int idServicio){
-        Servicio unServicio = serviceServ.obtenerServicio(idServicio);
-        return ResponseEntity.ok(unServicio);
+    @GetMapping("/get/{idProducto}")
+    public ResponseEntity<?> obtenerId(@PathVariable int idProducto){
+        Producto unProducto = productoServ.obtenerProducto(idProducto);
+        return ResponseEntity.ok(unProducto);
     }
 
     @PostMapping("/post")
-    public ResponseEntity<?> crearServicio(@RequestBody Servicio servicio){
-        Servicio crearServicio = serviceServ.crearServicio(servicio);
-        return ResponseEntity.ok(crearServicio);
+    public ResponseEntity<?> crearProducto(@RequestBody Producto producto){
+        Producto crearProducto = productoServ.crearProducto(producto);
+        return ResponseEntity.ok(crearProducto);
     }
 
-    @PutMapping("/put/idServicio")
-    public ResponseEntity<?> editarServicio(@PathVariable int idServicio, @RequestBody Servicio servicio){
-        Servicio updateService = serviceServ.actualizarServicio(idServicio,servicio);
+    @PutMapping("/put/idProducto")
+    public ResponseEntity<?> editarProducto(@PathVariable int idProducto, @RequestBody Producto producto){
+        Producto updateService = productoServ.actualizarProductos(idProducto, producto);
         return ResponseEntity.ok("Editado");
     }
 
-    @DeleteMapping("/delete/{idServicio}")
-    public ResponseEntity<?> deleteService(@PathVariable int idServicio){
-        serviceServ.eliminarServicio(idServicio);
+    @DeleteMapping("/delete/{idProducto}")
+    public ResponseEntity<?> deleteProducto(@PathVariable int idProducto){
+        productoServ.eliminarProducto(idProducto);
         return ResponseEntity.ok("eliminado");
     }
 }
