@@ -11,11 +11,11 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Servicio {
+public class Producto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idServicio;
+    private int idProducto;
 
     private String nombre;
 
