@@ -12,8 +12,6 @@ public interface IClienteService {
 
     Cliente obtenerClienteById(int idCliente);
 
-
-
     List<Cliente> obtenerTodosLosClientes();
 
     Cliente actualizarCliente(int idCliente, Cliente cliente);
