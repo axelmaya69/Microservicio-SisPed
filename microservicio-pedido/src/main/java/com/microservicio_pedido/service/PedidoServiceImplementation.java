@@ -31,15 +31,18 @@ public class PedidoServiceImplementation implements IPedidoService{
         return iPedido.findById(idPedido).orElseThrow();
     }
 
+
+//ANALIZAR BIEN COMO FUNCIONA ESTE METODO:
     @Override
-    public ClienteByPedidoResponse findClientesByIdPedido(int id) {
+    public ClienteByPedidoResponse obtenerPedidosPorCliente(int id) {
         Pedido pedido = iPedido.findById(id).orElse(new Pedido());
 
-        List<ClienteDTO> clienteDTOList = iCliente.findAllClientsByPedido(id);
+        ClienteDTO   clienteDTOList = iCliente.getClientById(pedido.getIdCliente());
         return ClienteByPedidoResponse.builder()
+                .idPedido(pedido.getIdPedido())
                 .idCliente(pedido.getIdCliente())
                 .fecha(pedido.getFecha())
-                .clienteDTO(clienteDTOList)
+                .clienteDTO(List.of(clienteDTOList))
                 .build();
 
     }
