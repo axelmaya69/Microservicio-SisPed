@@ -24,6 +24,7 @@ public class ClienteServiceImplementation implements  IClienteService{
         return Intcliente.findById(idCliente).orElseThrow();
     }
 
+
     @Override
     public List<Cliente> obtenerTodosLosClientes() {
         return Intcliente.findAll();
