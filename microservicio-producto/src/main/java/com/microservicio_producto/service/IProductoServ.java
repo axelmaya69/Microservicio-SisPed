@@ -6,15 +6,15 @@ import java.util.List;
 
 public interface IProductoServ {
 
-    Producto crearServicio(Producto producto);
+    Producto crearProducto(Producto producto);
 
-    Producto obtenerServicio(int idServicio);
+    Producto obtenerProducto(int idProducto);
 
-    List <Producto> obtenerTodosServicios();
+    List <Producto> obtenerTodosProductos();
 
-    Producto actualizarServicio(int idServicio, Producto producto);
+    Producto actualizarProductos(int idProducto, Producto producto);
 
-    void eliminarServicio(int idServicio);
+    void eliminarProducto(int idProducto);
 
 
 }
