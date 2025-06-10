@@ -11,7 +11,7 @@ public interface IPedidoService {
 
     Pedido obtenerPedido(int idPedido);
 
-    ClienteByPedidoResponse findClientesByIdPedido(int id);
+    ClienteByPedidoResponse obtenerPedidosPorCliente(int clienteId);
 
     List<Pedido> obtenerPedidos();
 
