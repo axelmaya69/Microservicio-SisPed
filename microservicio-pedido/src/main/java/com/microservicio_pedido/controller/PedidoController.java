@@ -1,6 +1,8 @@
 package com.microservicio_pedido.controller;
 
 
+import com.microservicio_pedido.cliente.ICliente;
+import com.microservicio_pedido.controller.DTO.ClienteDTO;
 import com.microservicio_pedido.entity.Pedido;
 import com.microservicio_pedido.service.IPedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,17 +18,19 @@ public class PedidoController {
     @Autowired
     private IPedidoService pedidoService;
 
+    @Autowired
+    private ICliente iCliente;
+
     @GetMapping("/get")
     public ResponseEntity<?> obtenerTodos(){
         List<Pedido> obtenerPedidos = pedidoService.obtenerPedidos();
         return ResponseEntity.ok(obtenerPedidos);
     }
 
-    @GetMapping("/search-client/{id}")
-    public ResponseEntity<?> findClientByIdPedido(@PathVariable int id){
-        return ResponseEntity.ok(pedidoService.findClientesByIdPedido(id));
+    @GetMapping("/get/cliente/{clienteId}")
+    public ResponseEntity<?> obtenerCliente(@PathVariable int clienteId) {
+        return ResponseEntity.ok(pedidoService.obtenerPedidosPorCliente(clienteId));
     }
-
 
     @GetMapping("get/{idPedido}")
     public ResponseEntity<?> obtenerPedido(@PathVariable int idPedido){
