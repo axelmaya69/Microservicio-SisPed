@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(name = "microservicio-cliente",url = "http://localhost:9090/api/cliente")
+@FeignClient(name = "microservicio-cliente",url = "http://localhost:8080/api/cliente")
 public interface ICliente {
 
-    @GetMapping("search-my-pedido/{id}")
-    List<ClienteDTO> findAllClientsByPedido(@PathVariable int id);
+    @GetMapping("get/{id}")
+    ClienteDTO getClientById(@PathVariable int id);
 }
