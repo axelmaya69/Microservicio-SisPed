@@ -11,6 +11,8 @@ import java.util.List;
 @Builder
 public class ClienteByPedidoResponse {
 
+    private int idPedido;
+
     private int idCliente;
 
     private LocalDate fecha;
