@@ -23,11 +23,6 @@ public class ClienteController {
         return ResponseEntity.ok(clientes);
     }
 
-    @GetMapping("/search-my-pedido/{id}")
-    public ResponseEntity<?> findByIdProduct(@PathVariable int id){
-        return ResponseEntity.ok(clienteService.findByPedidoId(id));
-    }
-
 
 
     @GetMapping("/get/{idCliente}")
