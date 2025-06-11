@@ -1,7 +1,8 @@
-package com.microservicio_pedido.cliente;
+package com.microservicio_pedido.clientes;
 
 
 import com.microservicio_pedido.controller.DTO.ClienteDTO;
+import com.microservicio_pedido.controller.DTO.ProductoDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,4 +14,5 @@ public interface ICliente {
 
     @GetMapping("get/{id}")
     ClienteDTO getClientById(@PathVariable int id);
+
 }
