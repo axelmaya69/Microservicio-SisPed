@@ -1,6 +1,7 @@
 package com.microservicio_pedido.http.responses;
 
 import com.microservicio_pedido.controller.DTO.ClienteDTO;
+import com.microservicio_pedido.controller.DTO.ProductoDTO;
 import lombok.Builder;
 import lombok.Data;
 
@@ -13,9 +14,11 @@ public class ClienteByPedidoResponse {
 
     private int idPedido;
 
-    private int idCliente;
-
     private LocalDate fecha;
 
-    private List<ClienteDTO> clienteDTO;
+    private int idCliente;
+
+    private ClienteDTO clienteDTO;
+
+    private List<ProductoDTO> productoDTO;
 }
