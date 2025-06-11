@@ -28,6 +28,13 @@ public class PedidoProductoController {
         return ResponseEntity.ok(obtenerPed);
     }
 
+    @GetMapping("/get/pedidoproducto-producto/{productoId}")
+    public ResponseEntity<?> obtenerProductos(@PathVariable int productoId) {
+        return ResponseEntity.ok(pedidoProductoService.obtenerPedidoProductoPorCliente(productoId));
+    }
+
+
+
     @PostMapping("/post")
     public ResponseEntity<?> crearPedidoProd(@RequestBody PedidoProducto pedidoProducto){
         PedidoProducto crearPedidoProducto = pedidoProductoService.crearPedidoProducto(pedidoProducto);
