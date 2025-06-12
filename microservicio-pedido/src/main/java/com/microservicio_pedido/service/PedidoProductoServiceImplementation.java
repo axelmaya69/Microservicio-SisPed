@@ -1,6 +1,10 @@
 package com.microservicio_pedido.service;
 
+import com.microservicio_pedido.clientes.IClientProducto;
+import com.microservicio_pedido.controller.DTO.ClienteDTO;
+import com.microservicio_pedido.controller.DTO.ProductoDTO;
 import com.microservicio_pedido.entity.PedidoProducto;
+import com.microservicio_pedido.http.responses.ProductoByPedidoProductoResponse;
 import com.microservicio_pedido.repository.IPedidoProducto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +17,8 @@ public class PedidoProductoServiceImplementation implements IPedidoProductoServi
     @Autowired
     private IPedidoProducto IPP;
 
+    @Autowired
+    private IClientProducto clientProducto;
 
     @Override
     public PedidoProducto crearPedidoProducto(PedidoProducto pedidoProducto) {
@@ -22,6 +28,21 @@ public class PedidoProductoServiceImplementation implements IPedidoProductoServi
     @Override
     public PedidoProducto obtenerPedidoProducto(int idPedidoProducto) {
         return IPP.findById(idPedidoProducto).orElseThrow();
+    }
+
+    @Override
+    public ProductoByPedidoProductoResponse obtenerPedidoProductoPorCliente(int productoId) {
+        PedidoProducto pedidoProducto = IPP.findById(productoId).orElse(new PedidoProducto());
+
+        ProductoDTO productoDTO = clientProducto.getProductoPorId(pedidoProducto.getIdProducto());
+        return ProductoByPedidoProductoResponse.builder()
+                .idPedidoProducto(pedidoProducto.getIdPedidoProducto())
+                .idProducto(pedidoProducto.getIdProducto())
+                .cantidad(pedidoProducto.getCantidad())
+                .precioUnitario(pedidoProducto.getPrecioUnitario())
+                .idPedido(pedidoProducto.getPedido().getIdPedido())
+                .productoDTO(List.of(productoDTO))
+                .build();
     }
 
     @Override
