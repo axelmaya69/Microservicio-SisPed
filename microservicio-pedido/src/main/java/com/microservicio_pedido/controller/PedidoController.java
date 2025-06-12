@@ -28,6 +28,7 @@ public class PedidoController {
         return ResponseEntity.ok(pedidoService.obtenerPedidosPorCliente(clienteId));
     }
 
+
     @GetMapping("get/{idPedido}")
     public ResponseEntity<?> obtenerPedido(@PathVariable int idPedido){
         Pedido obtenerPed = pedidoService.obtenerPedido(idPedido);
