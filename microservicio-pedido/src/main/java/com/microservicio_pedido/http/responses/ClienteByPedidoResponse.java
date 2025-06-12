@@ -2,6 +2,7 @@ package com.microservicio_pedido.http.responses;
 
 import com.microservicio_pedido.controller.DTO.ClienteDTO;
 import com.microservicio_pedido.controller.DTO.ProductoDTO;
+import com.microservicio_pedido.controller.DTO.ProductoDetalleDTO;
 import lombok.Builder;
 import lombok.Data;
 
@@ -20,5 +21,4 @@ public class ClienteByPedidoResponse {
 
     private ClienteDTO clienteDTO;
 
-    private List<ProductoDTO> productoDTO;
 }
