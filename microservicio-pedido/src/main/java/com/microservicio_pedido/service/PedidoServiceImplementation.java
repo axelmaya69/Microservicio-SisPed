@@ -1,14 +1,18 @@
 package com.microservicio_pedido.service;
 
-import com.microservicio_pedido.cliente.ICliente;
+import com.microservicio_pedido.clientes.IClientProducto;
+import com.microservicio_pedido.clientes.ICliente;
 import com.microservicio_pedido.controller.DTO.ClienteDTO;
+import com.microservicio_pedido.controller.DTO.PedidoDetalleDTO;
+import com.microservicio_pedido.controller.DTO.ProductoDTO;
+import com.microservicio_pedido.controller.DTO.ProductoDetalleDTO;
 import com.microservicio_pedido.entity.Pedido;
 import com.microservicio_pedido.http.responses.ClienteByPedidoResponse;
+import com.microservicio_pedido.http.responses.ProductoByPedidoProductoResponse;
 import com.microservicio_pedido.repository.IPedido;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -19,6 +23,9 @@ public class PedidoServiceImplementation implements IPedidoService{
 
     @Autowired
     ICliente iCliente;
+
+    @Autowired
+    IClientProducto clientProducto;
 
     @Override
     public Pedido crearPedido(Pedido pedido) {
@@ -37,14 +44,13 @@ public class PedidoServiceImplementation implements IPedidoService{
     public ClienteByPedidoResponse obtenerPedidosPorCliente(int id) {
         Pedido pedido = iPedido.findById(id).orElse(new Pedido());
 
-        ClienteDTO   clienteDTOList = iCliente.getClientById(pedido.getIdCliente());
+        ClienteDTO  clienteDTOList = iCliente.getClientById(pedido.getIdCliente());
         return ClienteByPedidoResponse.builder()
                 .idPedido(pedido.getIdPedido())
-                .idCliente(pedido.getIdCliente())
                 .fecha(pedido.getFecha())
-                .clienteDTO(List.of(clienteDTOList))
+                .idCliente(pedido.getIdCliente())
+                .clienteDTO(clienteDTOList)
                 .build();
-
     }
 
     @Override
