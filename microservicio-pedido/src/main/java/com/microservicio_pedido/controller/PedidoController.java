@@ -1,7 +1,6 @@
 package com.microservicio_pedido.controller;
 
 
-import com.microservicio_pedido.clientes.ICliente;
 import com.microservicio_pedido.entity.Pedido;
 import com.microservicio_pedido.service.IPedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
