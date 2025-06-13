@@ -1,5 +1,7 @@
 package com.microservicio_pedido.service;
 
+import com.microservicio_pedido.controller.DTO.PedidoProductoDTO;
+import com.microservicio_pedido.controller.DTO.PedidoProductoDetalleDTO;
 import com.microservicio_pedido.entity.Pedido;
 import com.microservicio_pedido.entity.PedidoProducto;
 import com.microservicio_pedido.http.responses.ProductoByPedidoProductoResponse;
@@ -11,8 +13,6 @@ public interface IPedidoProductoService {
     PedidoProducto crearPedidoProducto(PedidoProducto pedidoProducto);
 
     PedidoProducto obtenerPedidoProducto(int idPedidoProducto);
-
-    ProductoByPedidoProductoResponse obtenerPedidoProductoPorCliente(int productoId);
 
     List<PedidoProducto> obtenerPedidosProductos();
 
