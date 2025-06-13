@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @FeignClient(name = "microservicio-producto",url = "http://localhost:8080/api/producto")
-public interface IClientProducto {
+public interface IProductoFeignCliente {
 
     @GetMapping("/get/{id}")
-    ProductoDTO getProductoPorId(@PathVariable int id);
+    ProductoDTO getProductoById(@PathVariable int id);
 
 
 }
