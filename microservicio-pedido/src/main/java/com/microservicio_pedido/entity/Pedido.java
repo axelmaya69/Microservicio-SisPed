@@ -25,7 +25,7 @@ public class Pedido {
     private LocalDate fecha;
 
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
-    private List<PedidoProducto> producos = new ArrayList<>();
+    private List<PedidoProducto> productos = new ArrayList<>();
 
 
 }
