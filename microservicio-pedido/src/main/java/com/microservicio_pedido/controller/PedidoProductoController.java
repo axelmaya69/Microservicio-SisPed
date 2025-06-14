@@ -1,11 +1,8 @@
 package com.microservicio_pedido.controller;
 
-import com.microservicio_pedido.controller.DTO.PedidoProductoDTO;
-import com.microservicio_pedido.controller.DTO.PedidoProductoDetalleDTO;
 import com.microservicio_pedido.entity.PedidoProducto;
 import com.microservicio_pedido.service.IPedidoProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,8 +16,9 @@ public class PedidoProductoController {
     private IPedidoProductoService pedidoProductoService;
 
     @GetMapping("/get")
-    public ResponseEntity<List<PedidoProducto>> obtenerTodos(){
-        return ResponseEntity.ok(pedidoProductoService.obtenerPedidosProductos());
+    public ResponseEntity<?> obtenerTodos(){
+        List<PedidoProducto> obtenerPedidos = pedidoProductoService.obtenerPedidosProductos();
+        return ResponseEntity.ok(obtenerPedidos);
     }
 
     @GetMapping("get/{idPedidoProd}")
@@ -31,9 +29,9 @@ public class PedidoProductoController {
 
     @GetMapping("/get/pedidoproducto-producto/{productoId}")
     public ResponseEntity<?> obtenerProductos(@PathVariable int productoId) {
-        return ResponseEntity.ok(pedidoProductoService.obtenerPedidoProductoPorCliente(productoId));
-    }
+        return ResponseEntity.ok(pedidoProductoService.obtenerProductosByIdPedido(productoId));
 
+   }
 
 
     @PostMapping("/post")
