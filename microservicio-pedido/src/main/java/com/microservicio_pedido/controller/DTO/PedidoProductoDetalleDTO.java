@@ -11,10 +11,13 @@ import java.util.List;
 @Setter
 @Builder
 public class PedidoProductoDetalleDTO {
+
     private int idPedido;
+
     private LocalDate fecha;
 
     private ClienteDTO cliente;
 
     private List<PedidoProductoDTO> productos;
+
 }
