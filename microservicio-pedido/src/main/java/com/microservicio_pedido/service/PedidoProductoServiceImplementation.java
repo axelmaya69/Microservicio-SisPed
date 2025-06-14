@@ -1,7 +1,7 @@
 package com.microservicio_pedido.service;
 
-import com.microservicio_pedido.clientes.IClientProducto;
-import com.microservicio_pedido.controller.DTO.ClienteDTO;
+import com.microservicio_pedido.clientes.IProductoFeignCliente;
+import com.microservicio_pedido.controller.DTO.PedidoProductoDTO;
 import com.microservicio_pedido.controller.DTO.ProductoDTO;
 import com.microservicio_pedido.entity.PedidoProducto;
 import com.microservicio_pedido.http.responses.ProductoByPedidoProductoResponse;
@@ -18,7 +18,7 @@ public class PedidoProductoServiceImplementation implements IPedidoProductoServi
     private IPedidoProducto IPP;
 
     @Autowired
-    private IClientProducto clientProducto;
+    private IProductoFeignCliente clientProducto;
 
     @Override
     public PedidoProducto crearPedidoProducto(PedidoProducto pedidoProducto) {
@@ -31,10 +31,10 @@ public class PedidoProductoServiceImplementation implements IPedidoProductoServi
     }
 
     @Override
-    public ProductoByPedidoProductoResponse obtenerPedidoProductoPorCliente(int productoId) {
+    public ProductoByPedidoProductoResponse obtenerProductosByIdPedido(int productoId) {
         PedidoProducto pedidoProducto = IPP.findById(productoId).orElse(new PedidoProducto());
 
-        ProductoDTO productoDTO = clientProducto.getProductoPorId(pedidoProducto.getIdProducto());
+        ProductoDTO productoDTO = clientProducto.getProductoById(pedidoProducto.getIdProducto());
         return ProductoByPedidoProductoResponse.builder()
                 .idPedidoProducto(pedidoProducto.getIdPedidoProducto())
                 .idProducto(pedidoProducto.getIdProducto())
@@ -45,10 +45,13 @@ public class PedidoProductoServiceImplementation implements IPedidoProductoServi
                 .build();
     }
 
+
+
     @Override
     public List<PedidoProducto> obtenerPedidosProductos() {
         return IPP.findAll();
     }
+
 
     @Override
     public PedidoProducto editarPedidoProducto(int idPedidoProducto, PedidoProducto pedidoProducto) {
