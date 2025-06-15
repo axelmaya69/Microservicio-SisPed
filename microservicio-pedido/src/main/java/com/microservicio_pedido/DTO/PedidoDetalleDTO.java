@@ -10,14 +10,10 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-public class PedidoProductoDetalleDTO {
-
-    private int idPedido;
-
-    private LocalDate fecha;
+public class PedidoDetalleDTO {
 
     private ClienteDTO cliente;
 
-    private List<PedidoProductoDTO> productos;
+
 
 }
