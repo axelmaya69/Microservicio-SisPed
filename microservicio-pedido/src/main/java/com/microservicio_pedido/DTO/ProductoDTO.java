@@ -1,4 +1,4 @@
-package com.microservicio_pedido.controller.DTO;
+package com.microservicio_pedido.DTO;
 
 import lombok.Builder;
 import lombok.Data;
