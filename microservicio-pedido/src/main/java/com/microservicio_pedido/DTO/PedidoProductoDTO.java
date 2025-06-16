@@ -12,8 +12,6 @@ import javax.management.ConstructorParameters;
 @AllArgsConstructor
 public class PedidoProductoDTO {
 
-    private int idPedidoProducto;
-
     private int idProducto;
 
     private int pedidoId;
@@ -23,7 +21,6 @@ public class PedidoProductoDTO {
     private float precioUnitario;
 
     public PedidoProductoDTO(PedidoProducto entidad) {
-        this.idPedidoProducto = entidad.getIdPedidoProducto();
         this.idProducto = entidad.getIdProducto();
         this.cantidad = entidad.getCantidad();
         this.precioUnitario = entidad.getPrecioUnitario();
