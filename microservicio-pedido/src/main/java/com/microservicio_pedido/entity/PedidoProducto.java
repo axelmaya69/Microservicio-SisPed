@@ -1,6 +1,7 @@
 package com.microservicio_pedido.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,7 +15,8 @@ import java.time.LocalDate;
 public class PedidoProducto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //PK
+    @Getter
+    @Setter
     private int idPedidoProducto;
 
     //FK
