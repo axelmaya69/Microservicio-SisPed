@@ -16,6 +16,6 @@ private int idCliente;
 
 private LocalDate fecha;
 
-private List<PedidoProductoDTO> pedidos;
+private List<ProductoDTO> productos;
 
 }
