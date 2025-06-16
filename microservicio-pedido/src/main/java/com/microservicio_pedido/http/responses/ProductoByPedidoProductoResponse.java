@@ -1,7 +1,9 @@
 package com.microservicio_pedido.http.responses;
 
-import com.microservicio_pedido.controller.DTO.PedidoProductoDTO;
-import com.microservicio_pedido.controller.DTO.ProductoDTO;
+import com.microservicio_pedido.DTO.ClienteDTO;
+import com.microservicio_pedido.DTO.PedidoDTO;
+import com.microservicio_pedido.DTO.PedidoProductoDTO;
+import com.microservicio_pedido.DTO.ProductoDTO;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
@@ -25,5 +27,11 @@ public class ProductoByPedidoProductoResponse {
 
   private int idPedido;
 
-  private List<ProductoDTO> productoDTO;
+  private ClienteDTO clienteDTO;
+
+  private PedidoProductoDTO pedidoProductoDTO;
+
+  private List<ProductoDTO> productos;
+
+
 }
