@@ -28,12 +28,13 @@ public class PedidoProductoController {
         PedidoProductoDTO obtenerPed = pedidoProductoService.obtenerPedidoProducto(idPedidoProd);
         return ResponseEntity.ok(obtenerPed);
     }
-
+/*
     @GetMapping("/get/pedidoproducto-producto/{productoId}")
     public ResponseEntity<?> obtenerProductos(@PathVariable int productoId) {
         return ResponseEntity.ok(pedidoProductoService.obtenerProductosByIdPedido(productoId));
-
    }
+
+ */
 
 
     @PostMapping("/post")
