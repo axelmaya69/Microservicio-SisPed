@@ -22,6 +22,12 @@ public class PedidoController {
         return ResponseEntity.ok(obtenerPedidos);
     }
 
+    @GetMapping("/get/pedidoproducto/{productoId}")
+    public ResponseEntity<?> obtenerProductos(@PathVariable int productoId) {
+        return ResponseEntity.ok(pedidoService.obtenerProductosByIdPedido(productoId));
+    }
+
+
     @GetMapping("/get/pedido-cliente/{clienteId}")
     public ResponseEntity<?> obtenerCliente(@PathVariable int clienteId) {
         return ResponseEntity.ok(pedidoService.obtenerPedidosPorCliente(clienteId));
