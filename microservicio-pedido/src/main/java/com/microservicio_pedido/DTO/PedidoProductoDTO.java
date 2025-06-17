@@ -20,6 +20,7 @@ public class PedidoProductoDTO {
 
     private float precioUnitario;
 
+
     public PedidoProductoDTO(PedidoProducto entidad) {
         this.idProducto = entidad.getIdProducto();
         this.cantidad = entidad.getCantidad();
