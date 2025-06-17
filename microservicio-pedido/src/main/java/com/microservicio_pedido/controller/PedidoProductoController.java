@@ -33,7 +33,6 @@ public class PedidoProductoController {
     public ResponseEntity<?> obtenerProductos(@PathVariable int productoId) {
         return ResponseEntity.ok(pedidoProductoService.obtenerProductosByIdPedido(productoId));
    }
-
  */
 
 
