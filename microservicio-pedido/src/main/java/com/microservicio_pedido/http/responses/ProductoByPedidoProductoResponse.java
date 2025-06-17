@@ -16,7 +16,7 @@ import java.util.List;
 @Getter
 @Setter
 public class ProductoByPedidoProductoResponse {
-
+/*
   private int idPedidoProducto;
 
   private int idProducto;
@@ -24,6 +24,7 @@ public class ProductoByPedidoProductoResponse {
   private Integer cantidad;
 
   private float precioUnitario;
+ */
 
   private int idPedido;
 
