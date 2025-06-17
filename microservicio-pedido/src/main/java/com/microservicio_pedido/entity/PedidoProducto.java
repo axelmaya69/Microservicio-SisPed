@@ -15,21 +15,18 @@ import java.time.LocalDate;
 public class PedidoProducto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter
-    @Setter
     private int idPedidoProducto;
 
-    //FK
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "pedido_id", nullable = false)
+    @JsonBackReference
+    private Pedido pedido;
+
     private int idProducto;
 
     private Integer cantidad;
 
     private float precioUnitario;
 
-    // Relación física interna con Pedido
-    @Getter
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "pedido_id", nullable = false)
-    private Pedido pedido;
 
 }
