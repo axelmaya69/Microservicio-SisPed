@@ -1,0 +1,10 @@
+INSERT INTO producto (nombre, descripcion, precio) VALUES('Corte de cabello', 'Servicio básico de corte de cabello para hombre o mujer', 120.00);
+INSERT INTO producto (nombre, descripcion, precio) VALUES('Limpieza facial', 'Limpieza profunda del rostro con productos dermatológicos', 250.00);
+INSERT INTO producto (nombre, descripcion, precio) VALUES('Masaje relajante', 'Masaje de cuerpo completo para reducir el estrés', 500.00);
+INSERT INTO producto (nombre, descripcion, precio) VALUES('Manicura', 'Cuidado y embellecimiento de uñas de las manos', 180.00);
+INSERT INTO producto (nombre, descripcion, precio) VALUES('Pedicura', 'Tratamiento para pies y uñas de los pies', 200.00);
+INSERT INTO producto (nombre, descripcion, precio) VALUES('Tinte de cabello', 'Aplicación de tinte con productos profesionales', 450.00);
+INSERT INTO producto (nombre, descripcion, precio) VALUES('Depilación con cera', 'Depilación de piernas completas con cera caliente', 300.00);
+INSERT INTO producto (nombre, descripcion, precio) VALUES('Tratamiento capilar', 'Tratamiento para el fortalecimiento del cabello', 350.00);
+INSERT INTO producto (nombre, descripcion, precio) VALUES('Maquillaje profesional', 'Aplicación de maquillaje para eventos especiales', 400.00);
+INSERT INTO producto (nombre, descripcion, precio) VALUES('Peinado para evento', 'Peinado formal para bodas, graduaciones, etc.', 380.00);
