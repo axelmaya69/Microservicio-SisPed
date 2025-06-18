@@ -1,14 +1,12 @@
 package com.microservicio_pedido.http.responses;
 
-import com.microservicio_pedido.DTO.ClienteDTO;
-import com.microservicio_pedido.DTO.PedidoDTO;
-import com.microservicio_pedido.DTO.PedidoProductoDTO;
-import com.microservicio_pedido.DTO.ProductoDTO;
+import com.microservicio_pedido.DTO.*;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -16,23 +14,14 @@ import java.util.List;
 @Getter
 @Setter
 public class ProductoByPedidoProductoResponse {
-/*
-  private int idPedidoProducto;
-
-  private int idProducto;
-
-  private Integer cantidad;
-
-  private float precioUnitario;
- */
 
   private int idPedido;
 
-  private ClienteDTO clienteDTO;
+  private ClienteDTO cliente;
 
-  private PedidoProductoDTO pedidoProductoDTO;
+  private List<ProductoDetalleDTO> productos;
 
-  private List<ProductoDTO> productos;
+  private LocalDate fecha;
 
 
 }
