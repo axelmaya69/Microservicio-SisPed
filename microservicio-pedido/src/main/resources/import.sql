@@ -8,3 +8,18 @@ INSERT INTO pedido (id_cliente, fecha) VALUES (2, '2025-06-07');
 INSERT INTO pedido (id_cliente, fecha) VALUES (3, '2025-06-08');
 INSERT INTO pedido (id_cliente, fecha) VALUES (1, '2025-06-09');
 INSERT INTO pedido (id_cliente, fecha) VALUES (4, '2025-06-10');
+
+
+INSERT INTO pedido_producto (id_producto, cantidad, precio_unitario, pedido_id) VALUES (1, 2, 15.50, 1);
+INSERT INTO pedido_producto (id_producto, cantidad, precio_unitario, pedido_id) VALUES (1, 2, 15.50, 1);
+INSERT INTO pedido_producto (id_producto, cantidad, precio_unitario, pedido_id) VALUES (1, 2, 15.50, 1);
+INSERT INTO pedido_producto (id_producto, cantidad, precio_unitario, pedido_id) VALUES (1, 2, 15.50, 1);
+INSERT INTO pedido_producto (id_producto, cantidad, precio_unitario, pedido_id) VALUES (2, 1, 23.99, 1);
+INSERT INTO pedido_producto (id_producto, cantidad, precio_unitario, pedido_id) VALUES (3, 5, 9.75, 2);
+INSERT INTO pedido_producto (id_producto, cantidad, precio_unitario, pedido_id) VALUES (4, 3, 12.30, 2);
+INSERT INTO pedido_producto (id_producto, cantidad, precio_unitario, pedido_id) VALUES (5, 4, 19.99, 3);
+INSERT INTO pedido_producto (id_producto, cantidad, precio_unitario, pedido_id) VALUES (6, 2, 8.45, 3);
+INSERT INTO pedido_producto (id_producto, cantidad, precio_unitario, pedido_id) VALUES (7, 6, 14.00, 4);
+INSERT INTO pedido_producto (id_producto, cantidad, precio_unitario, pedido_id) VALUES (8, 1, 7.20, 4);
+INSERT INTO pedido_producto (id_producto, cantidad, precio_unitario, pedido_id) VALUES (9, 2, 10.50, 5);
+INSERT INTO pedido_producto (id_producto, cantidad, precio_unitario, pedido_id) VALUES (10, 3, 11.80, 5);
