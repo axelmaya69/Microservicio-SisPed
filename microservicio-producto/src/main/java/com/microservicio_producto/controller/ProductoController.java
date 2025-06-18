@@ -2,15 +2,18 @@ package com.microservicio_producto.controller;
 
 import com.microservicio_producto.entity.Producto;
 import com.microservicio_producto.service.IProductoServ;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/producto")
 public class ProductoController {
+
 
     @Autowired
     private IProductoServ productoServ;
