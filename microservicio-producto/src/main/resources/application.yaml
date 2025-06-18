@@ -1,5 +1,5 @@
 spring:
   application:
-    name: microservicio-servicio
+    name: microservicio-producto
   config:
     import: optional:configserver:http://localhost:8888
