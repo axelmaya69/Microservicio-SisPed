@@ -1,18 +1,17 @@
 package com.microservicio_pedido.service;
 
-import com.microservicio_pedido.clientes.IClientProducto;
-import com.microservicio_pedido.clientes.ICliente;
-import com.microservicio_pedido.controller.DTO.ClienteDTO;
-import com.microservicio_pedido.controller.DTO.PedidoDetalleDTO;
-import com.microservicio_pedido.controller.DTO.ProductoDTO;
-import com.microservicio_pedido.controller.DTO.ProductoDetalleDTO;
+import com.microservicio_pedido.DTO.*;
+import com.microservicio_pedido.clientes.IProductoFeignCliente;
+import com.microservicio_pedido.clientes.IClienteFeignCliente;
 import com.microservicio_pedido.entity.Pedido;
+import com.microservicio_pedido.entity.PedidoProducto;
 import com.microservicio_pedido.http.responses.ClienteByPedidoResponse;
 import com.microservicio_pedido.http.responses.ProductoByPedidoProductoResponse;
 import com.microservicio_pedido.repository.IPedido;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -22,10 +21,13 @@ public class PedidoServiceImplementation implements IPedidoService{
     private IPedido iPedido;
 
     @Autowired
-    ICliente iCliente;
+    IClienteFeignCliente iCliente;
 
     @Autowired
-    IClientProducto clientProducto;
+    IProductoFeignCliente clientProducto;
+
+    @Autowired
+    IPedidoProductoService productoService;
 
     @Override
     public Pedido crearPedido(Pedido pedido) {
@@ -58,6 +60,37 @@ public class PedidoServiceImplementation implements IPedidoService{
         return iPedido.findAll();
     }
 
+    @Override
+    public ProductoByPedidoProductoResponse obtenerProductosByIdPedido(int idPedido) {
+        Pedido pedido = iPedido.findById(idPedido)
+                .orElseThrow(() -> new RuntimeException("Pedido no encontrado"));
+
+        ClienteDTO clienteDTO = iCliente.getClientById(pedido.getIdCliente());
+
+        List<ProductoDetalleDTO> productosDetallados = new ArrayList<>();
+
+        for (PedidoProducto pp : pedido.getProductos()) {
+            ProductoDTO productoDTO = clientProducto.getProductoById(pp.getIdProducto());
+
+            ProductoDetalleDTO detallado = ProductoDetalleDTO.builder()
+                    .idProducto(productoDTO.getIdProducto())
+                    .nombre(productoDTO.getNombre())
+                    .precio(productoDTO.getPrecio())
+                    .cantidad(pp.getCantidad())
+                    .precioUnitario(pp.getPrecioUnitario())
+                    .build();
+
+            productosDetallados.add(detallado);
+        }
+
+        return ProductoByPedidoProductoResponse.builder()
+                .idPedido(pedido.getIdPedido())
+                .cliente(clienteDTO)
+                .productos(productosDetallados)
+                .fecha(pedido.getFecha())
+                .build();
+    }
+
 
     @Override
     public Pedido editarPedido(int idPedido, Pedido pedido) {
@@ -65,7 +98,7 @@ public class PedidoServiceImplementation implements IPedidoService{
         if(iPedido.existsById(idPedido)){
             updatePedido.setIdCliente(pedido.getIdCliente());
             updatePedido.setFecha(pedido.getFecha());
-            updatePedido.setProducos(pedido.getProducos());
+            updatePedido.setProductos(pedido.getProductos());
             return iPedido.save(updatePedido);
         }return null;
     }
