@@ -8,32 +8,32 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ServicioImplementation implements IProductoServ {
+public class ProductoImplementation implements IProductoServ {
 
     @Autowired
     private IProducto IntServ;
 
     @Override
-    public Producto crearServicio(Producto producto) {
+    public Producto crearProducto(Producto producto) {
         return IntServ.save(producto);
     }
 
     @Override
-    public Producto obtenerServicio(int idServicio) {
-        return IntServ.findById(idServicio).orElseThrow();
+    public Producto obtenerProducto(int idProducto) {
+        return IntServ.findById(idProducto).orElseThrow();
     }
 
     @Override
-    public List<Producto> obtenerTodosServicios() {
+    public List<Producto> obtenerTodosProductos() {
         return IntServ.findAll();
     }
 
 
 
     @Override
-    public Producto actualizarServicio(int idServicio, Producto producto) {
-        Producto updateProducto = IntServ.findById(idServicio).get();
-        if(IntServ.existsById(idServicio)){
+    public Producto actualizarProductos(int idProducto, Producto producto) {
+        Producto updateProducto = IntServ.findById(idProducto).get();
+        if(IntServ.existsById(idProducto)){
             updateProducto.setNombre(producto.getNombre());
             updateProducto.setDescripcion(producto.getDescripcion());
             updateProducto.setPrecio(producto.getPrecio());
@@ -42,7 +42,7 @@ public class ServicioImplementation implements IProductoServ {
         return null;
     }
     @Override
-    public void eliminarServicio(int idServicio) {
-    IntServ.deleteById(idServicio);
+    public void eliminarProducto(int idProducto) {
+    IntServ.deleteById(idProducto);
     }
 }
