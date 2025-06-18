@@ -1,21 +1,24 @@
 package com.microservicio_pedido.service;
 
+import com.microservicio_pedido.clientes.IClienteFeignCliente;
 import com.microservicio_pedido.clientes.IProductoFeignCliente;
-import com.microservicio_pedido.controller.DTO.PedidoProductoDTO;
-import com.microservicio_pedido.controller.DTO.ProductoDTO;
+import com.microservicio_pedido.DTO.PedidoProductoDTO;
 import com.microservicio_pedido.entity.PedidoProducto;
-import com.microservicio_pedido.http.responses.ProductoByPedidoProductoResponse;
 import com.microservicio_pedido.repository.IPedidoProducto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PedidoProductoServiceImplementation implements IPedidoProductoService{
 
     @Autowired
     private IPedidoProducto IPP;
+
+    @Autowired
+    IClienteFeignCliente iCliente;
 
     @Autowired
     private IProductoFeignCliente clientProducto;
@@ -26,32 +29,38 @@ public class PedidoProductoServiceImplementation implements IPedidoProductoServi
     }
 
     @Override
-    public PedidoProducto obtenerPedidoProducto(int idPedidoProducto) {
-        return IPP.findById(idPedidoProducto).orElseThrow();
+    public PedidoProductoDTO obtenerPedidoProducto(int idPedidoProducto) {
+        PedidoProducto entidad = IPP.findById(idPedidoProducto)
+                .orElseThrow(() -> new RuntimeException("PedidoProducto no encontrado con id: " + idPedidoProducto));
+        return new PedidoProductoDTO(entidad);
     }
 
+    @Override
+    public List<PedidoProductoDTO> obtenerPedidosProductos() {
+        return IPP.findAll().stream()
+                .map(PedidoProductoDTO::new)
+                .collect(Collectors.toList());
+    }
+
+    /*
     @Override
     public ProductoByPedidoProductoResponse obtenerProductosByIdPedido(int productoId) {
         PedidoProducto pedidoProducto = IPP.findById(productoId).orElse(new PedidoProducto());
 
+        ClienteDTO clienteDTO = iCliente.getClientById(pedidoProducto.getIdPedidoProducto());
         ProductoDTO productoDTO = clientProducto.getProductoById(pedidoProducto.getIdProducto());
+        PedidoDTO pedidosDTO = pedidoFeignCliente.getPedidotById(pedidoProducto.getPedido().getIdPedido());
         return ProductoByPedidoProductoResponse.builder()
                 .idPedidoProducto(pedidoProducto.getIdPedidoProducto())
                 .idProducto(pedidoProducto.getIdProducto())
                 .cantidad(pedidoProducto.getCantidad())
                 .precioUnitario(pedidoProducto.getPrecioUnitario())
                 .idPedido(pedidoProducto.getPedido().getIdPedido())
-                .productoDTO(List.of(productoDTO))
+                .clienteDTO(clienteDTO)
+                .productos(List.of(productoDTO))
                 .build();
     }
-
-
-
-    @Override
-    public List<PedidoProducto> obtenerPedidosProductos() {
-        return IPP.findAll();
-    }
-
+     */
 
     @Override
     public PedidoProducto editarPedidoProducto(int idPedidoProducto, PedidoProducto pedidoProducto) {
