@@ -17,6 +17,7 @@ public class PedidoProducto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPedidoProducto;
 
+    //Tabla intermedia de Pedido con relacion uno a muchos
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "pedido_id", nullable = false)
     @JsonBackReference
