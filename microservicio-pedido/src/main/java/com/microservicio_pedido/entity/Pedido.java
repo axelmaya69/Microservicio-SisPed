@@ -25,7 +25,7 @@ public class Pedido {
 
     private LocalDate fecha;
 
-
+    //Relacion uno a muchos
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<PedidoProducto> productos = new ArrayList<>();
