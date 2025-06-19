@@ -67,6 +67,7 @@ public class PedidoServiceImplementation implements IPedidoService{
 
         ClienteDTO clienteDTO = iCliente.getClientById(pedido.getIdCliente());
 
+        //Se crea una lista con todos los productos
         List<ProductoDetalleDTO> productosDetallados = new ArrayList<>();
 
         for (PedidoProducto pp : pedido.getProductos()) {
