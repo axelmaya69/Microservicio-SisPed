@@ -17,5 +17,6 @@ public class PedidoDTO{
 
     private LocalDate fecha;
 
+    //Obtiene tambien una lista de todos los pedidos
     private List<PedidoProducto> productos;
 }
