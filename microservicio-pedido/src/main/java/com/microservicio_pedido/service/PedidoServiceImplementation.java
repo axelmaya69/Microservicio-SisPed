@@ -79,16 +79,22 @@ public class PedidoServiceImplementation implements IPedidoService{
                     .precio(productoDTO.getPrecio())
                     .cantidad(pp.getCantidad())
                     .precioUnitario(pp.getPrecioUnitario())
+
                     .build();
 
             productosDetallados.add(detallado);
         }
+
+        //Agregando total
+    float total = productosDetallados.stream().map(p -> p.getCantidad() * p.getPrecioUnitario())
+            .reduce(0f,Float::sum);
 
         return ProductoByPedidoProductoResponse.builder()
                 .idPedido(pedido.getIdPedido())
                 .cliente(clienteDTO)
                 .productos(productosDetallados)
                 .fecha(pedido.getFecha())
+                .total(total)
                 .build();
     }
 
