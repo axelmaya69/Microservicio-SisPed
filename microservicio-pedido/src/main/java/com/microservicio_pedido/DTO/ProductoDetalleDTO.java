@@ -19,4 +19,5 @@ public class ProductoDetalleDTO {
 
     private float precioUnitario;
 
+
 }
