@@ -23,5 +23,7 @@ public class ProductoByPedidoProductoResponse {
 
   private LocalDate fecha;
 
+  private float total;
+
 
 }
