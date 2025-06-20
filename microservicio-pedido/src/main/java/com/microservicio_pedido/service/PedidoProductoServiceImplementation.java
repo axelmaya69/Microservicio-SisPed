@@ -17,12 +17,6 @@ public class PedidoProductoServiceImplementation implements IPedidoProductoServi
     @Autowired
     private IPedidoProducto IPP;
 
-    @Autowired
-    IClienteFeignCliente iCliente;
-
-    @Autowired
-    private IProductoFeignCliente clientProducto;
-
     @Override
     public PedidoProducto crearPedidoProducto(PedidoProducto pedidoProducto) {
         return IPP.save(pedidoProducto);
@@ -41,26 +35,6 @@ public class PedidoProductoServiceImplementation implements IPedidoProductoServi
                 .map(PedidoProductoDTO::new)
                 .collect(Collectors.toList());
     }
-
-    /*
-    @Override
-    public ProductoByPedidoProductoResponse obtenerProductosByIdPedido(int productoId) {
-        PedidoProducto pedidoProducto = IPP.findById(productoId).orElse(new PedidoProducto());
-
-        ClienteDTO clienteDTO = iCliente.getClientById(pedidoProducto.getIdPedidoProducto());
-        ProductoDTO productoDTO = clientProducto.getProductoById(pedidoProducto.getIdProducto());
-        PedidoDTO pedidosDTO = pedidoFeignCliente.getPedidotById(pedidoProducto.getPedido().getIdPedido());
-        return ProductoByPedidoProductoResponse.builder()
-                .idPedidoProducto(pedidoProducto.getIdPedidoProducto())
-                .idProducto(pedidoProducto.getIdProducto())
-                .cantidad(pedidoProducto.getCantidad())
-                .precioUnitario(pedidoProducto.getPrecioUnitario())
-                .idPedido(pedidoProducto.getPedido().getIdPedido())
-                .clienteDTO(clienteDTO)
-                .productos(List.of(productoDTO))
-                .build();
-    }
-     */
 
     @Override
     public PedidoProducto editarPedidoProducto(int idPedidoProducto, PedidoProducto pedidoProducto) {
