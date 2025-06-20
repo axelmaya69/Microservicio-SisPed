@@ -5,11 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
-import javax.management.ConstructorParameters;
 
 @Data
 @Builder
-@AllArgsConstructor
 public class PedidoProductoDTO {
 
     private int idProducto;
