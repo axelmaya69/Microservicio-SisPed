@@ -9,7 +9,6 @@ INSERT INTO pedido (id_cliente, fecha) VALUES (3, '2025-06-08');
 INSERT INTO pedido (id_cliente, fecha) VALUES (1, '2025-06-09');
 INSERT INTO pedido (id_cliente, fecha) VALUES (4, '2025-06-10');
 
-
 INSERT INTO pedido_producto (id_producto, cantidad, precio_unitario, pedido_id) VALUES (1, 2, 15.50, 1);
 INSERT INTO pedido_producto (id_producto, cantidad, precio_unitario, pedido_id) VALUES (1, 2, 15.50, 1);
 INSERT INTO pedido_producto (id_producto, cantidad, precio_unitario, pedido_id) VALUES (1, 2, 15.50, 1);
