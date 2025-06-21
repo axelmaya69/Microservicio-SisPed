@@ -1,7 +1,6 @@
 package com.microservicio_cliente.service;
 
 import com.microservicio_cliente.entity.Cliente;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
