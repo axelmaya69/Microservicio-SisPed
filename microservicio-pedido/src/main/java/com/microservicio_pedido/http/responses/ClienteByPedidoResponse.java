@@ -1,12 +1,10 @@
 package com.microservicio_pedido.http.responses;
 
 import com.microservicio_pedido.DTO.ClienteDTO;
-import com.microservicio_pedido.DTO.PedidoDTO;
 import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Data
 @Builder
