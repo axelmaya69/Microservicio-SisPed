@@ -1,7 +1,5 @@
 package com.microservicio_pedido.service;
 
-import com.microservicio_pedido.clientes.IClienteFeignCliente;
-import com.microservicio_pedido.clientes.IProductoFeignCliente;
 import com.microservicio_pedido.DTO.PedidoProductoDTO;
 import com.microservicio_pedido.entity.PedidoProducto;
 import com.microservicio_pedido.repository.IPedidoProducto;
