@@ -20,4 +20,7 @@ public class SecurityConfig {
                         .requestMatchers("/auth/**").permitAll()  // endpoints públicos
                         .anyRequest().authenticated()
                 )
+                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
+                .build();
+    }
 }
