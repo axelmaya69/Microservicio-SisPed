@@ -30,5 +30,18 @@ public class JwtAutenthication extends OncePerRequestFilter {
             return;
         }
 
+        String token = header.substring(7);
+        try {
+            Claims claims = Jwts.parser()
+                    .setSigningKey(secretKey)
+                    .parseClaimsJws(token)
+                    .getBody();
 
-}
+            String username = claims.getSubject();
+
+            UsernamePasswordAuthenticationToken auth =
+                    new UsernamePasswordAuthenticationToken(username, null, List.of());
+
+
+
+        }
