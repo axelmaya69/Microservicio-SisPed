@@ -1,12 +1,14 @@
 package com.microservicio_pedido.DTO;
 
 import com.microservicio_pedido.entity.PedidoProducto;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
 
 @Data
 @Builder
+@AllArgsConstructor
 public class PedidoProductoDTO {
 
     private int idProducto;
