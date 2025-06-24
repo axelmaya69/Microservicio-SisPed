@@ -19,6 +19,7 @@ public class GatewaySecurityConfig {
                         .pathMatchers("/api/**").authenticated() // protegidas
                         .anyExchange().denyAll()
                 )
+                
                 .oauth2Login(Customizer.withDefaults()) // reactivo
                 .build();
     }
