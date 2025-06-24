@@ -16,7 +16,6 @@ public class GatewaySecurityConfig {
         return http
                 .authorizeExchange(exchange -> exchange
                         .pathMatchers("/login", "/oauth2/**").permitAll()
-
                         .pathMatchers("/api/**").authenticated() // protegidas
                         .anyExchange().denyAll()
                 )
