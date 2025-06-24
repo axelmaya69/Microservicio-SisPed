@@ -14,6 +14,7 @@ public class HomeController {
         return "index"; // página pública
     }
 
+    
     @GetMapping("/user")
     @ResponseBody
     public String user(@AuthenticationPrincipal OAuth2User principal) {
