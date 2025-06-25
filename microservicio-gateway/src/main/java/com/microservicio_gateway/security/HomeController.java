@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class HomeController {
 
-    @GetMapping("/")
+    @GetMapping("/inicio")
     public String index() {
         return "index"; // página pública
     }
