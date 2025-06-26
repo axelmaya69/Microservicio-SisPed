@@ -1,5 +1,5 @@
 server:
-  port: 9092
+  port: ${msvc-pedido-port}
 
 spring:
   application:
@@ -8,8 +8,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3308/pedidodb
-    username: userDev
-    password: 12345
+    username: ${msvc-cliente-user}
+    password: ${msvc-cliente-password}
 
   jpa:
     hibernate:
