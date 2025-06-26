@@ -1,5 +1,5 @@
 server:
-  port: 9091
+  port: ${msvc-producto-port}
 
 spring:
   application:
@@ -8,8 +8,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3309/serviciodb
-    username: userDev
-    password: 12345
+    username: ${msvc-cliente-user}
+    password: ${msvc-cliente-password}
 
   jpa:
     hibernate:
