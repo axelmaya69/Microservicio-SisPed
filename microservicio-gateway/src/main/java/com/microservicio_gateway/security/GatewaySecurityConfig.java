@@ -13,7 +13,7 @@ import java.net.URI;
 @Configuration
 @EnableWebFluxSecurity
 public class GatewaySecurityConfig {
-
+ 
     @Bean
     public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http) {
         return http
