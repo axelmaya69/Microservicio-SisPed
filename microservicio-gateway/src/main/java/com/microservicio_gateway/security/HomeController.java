@@ -12,7 +12,7 @@ public class HomeController {
     @GetMapping("/inicio")
     public String index() {
         return "index"; // página pública
-        
+
     }
 
     @GetMapping("/user")
