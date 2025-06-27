@@ -20,4 +20,4 @@ public class HomeController {
     public String user(@AuthenticationPrincipal OAuth2User principal) {
         return "Hola, " + principal.getAttribute("name");
     }
-}
+} 
