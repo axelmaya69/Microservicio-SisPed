@@ -6,7 +6,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @EnableDiscoveryClient
 @SpringBootApplication
-public class MicroservicioClienteApplication {
+public class  MicroservicioClienteApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MicroservicioClienteApplication.class, args);
