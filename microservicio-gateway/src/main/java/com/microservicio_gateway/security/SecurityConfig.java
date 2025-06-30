@@ -1,6 +1,7 @@
 package com.microservicio_gateway.security;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.web.SecurityFilterChain;
 
 public class SecurityConfig {
 
