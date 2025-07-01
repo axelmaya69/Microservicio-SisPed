@@ -20,6 +20,7 @@ public class JwtAuthenticationFilter {
     @Value("${jwt.secret}")
     private String secretKey;
 
+    
     @Override
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
