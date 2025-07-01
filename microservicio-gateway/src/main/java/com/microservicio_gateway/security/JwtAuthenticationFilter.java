@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
 import java.io.IOException;
+import java.util.List;
 
 public class JwtAuthenticationFilter {
 
