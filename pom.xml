@@ -22,6 +22,7 @@
     <module>microservicio-eureka</module>
     <module>microservicio-config-server</module>
     <module>microservicio-cliente</module>
+    <module>Auth-service</module>
   </modules>
 
 
