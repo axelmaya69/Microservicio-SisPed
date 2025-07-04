@@ -1,6 +1,27 @@
 server:
-  port:
+  port: ${msvc-auth-port}
 
 spring:
   application:
-    name:
+    name: Auth-service
+jwt:
+  secret: ${jwt.secret}
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3310/userdb
+    username: ${msvc-auth-user}
+    password: ${msvc-cliente-password}
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQLDialect
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
