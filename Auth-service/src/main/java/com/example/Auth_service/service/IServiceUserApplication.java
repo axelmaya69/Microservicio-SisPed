@@ -2,6 +2,8 @@ package com.example.Auth_service.service;
 
 import com.example.Auth_service.entity.User;
 import com.example.Auth_service.repository.IUserRepository;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -42,6 +44,9 @@ public class IServiceUserApplication implements  IServiceUser{
         if(!passwordEncoder.matches(password,user.getPassword())){
             throw new RuntimeException("Contraseña incorrecta");
         }
-        
+        return Jwts.builder()
+                .setSubject(user.getUsername())
+                .signWith(SignatureAlgorithm.HS512, secretKey)
+                .compact();
     }
 }
