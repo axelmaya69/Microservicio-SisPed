@@ -2,6 +2,7 @@ package com.example.Auth_service.service;
 
 import com.example.Auth_service.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +14,8 @@ public class IServiceUserApplication implements  IServiceUser{
     @Autowired
     IServiceUser serviceUser;
 
-
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     @Override
     public User registrarUser(User user) {
