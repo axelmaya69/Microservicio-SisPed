@@ -35,6 +35,13 @@ public class IServiceUserApplication implements  IServiceUser{
 
     @Override
     public String logearUser(String username, String password) {
-        return "";
+        User user = userRepository.findByUsername(username);
+        if(user == null){
+            throw new RuntimeException("Usuario No encontrado");
+        }
+        if(!passwordEncoder.matches(password,user.getPassword())){
+            throw new RuntimeException("Contraseña incorrecta");
+        }
+        
     }
 }
