@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface IServiceUser {
 
-    User registrarUser(User user);
+    User registrarUser(String username, String password);
 
-    String logearUser(long idUser);
+    String logearUser(String username, String password);
 
 
 }
