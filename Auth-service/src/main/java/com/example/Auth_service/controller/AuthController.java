@@ -4,6 +4,7 @@ import com.example.Auth_service.dtos.LoginRequest;
 import com.example.Auth_service.entity.User;
 import com.example.Auth_service.service.IServiceUser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,7 +27,12 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest request){
-        
+        try{
+            String token = serviceUser.logearUser(request.getUsername(), request.getPassword());
+            return ResponseEntity.ok(new LoginResponse(token));
+        }catch (RuntimeException e){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
+        }
     }
 
 }
