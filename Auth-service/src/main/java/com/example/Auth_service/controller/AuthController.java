@@ -1,6 +1,7 @@
 package com.example.Auth_service.controller;
 
 import com.example.Auth_service.dtos.LoginRequest;
+import com.example.Auth_service.dtos.LoginResponse;
 import com.example.Auth_service.entity.User;
 import com.example.Auth_service.service.IServiceUser;
 import org.springframework.beans.factory.annotation.Autowired;
