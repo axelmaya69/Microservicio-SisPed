@@ -24,4 +24,9 @@ public class AuthController {
         return ResponseEntity.ok("Usuario"+ user.getUsername()+" registrado");
     }
 
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody LoginRequest request){
+        
+    }
+
 }
