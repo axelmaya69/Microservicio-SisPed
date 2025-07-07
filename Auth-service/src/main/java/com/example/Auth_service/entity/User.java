@@ -19,4 +19,9 @@ public class User {
     private String username;
 
     private String password; // encriptada
+
+    private String rol;
+
+    private int clienteId;
+
 }
