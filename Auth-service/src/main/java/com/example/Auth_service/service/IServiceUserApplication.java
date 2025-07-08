@@ -1,6 +1,8 @@
 package com.example.Auth_service.service;
 
+import com.example.Auth_service.dtos.ClienteRequest;
 import com.example.Auth_service.entity.User;
+import com.example.Auth_service.feigns.IClienteFeignClient;
 import com.example.Auth_service.repository.IUserRepository;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -18,7 +20,8 @@ public class IServiceUserApplication implements  IServiceUser{
     @Autowired
     IUserRepository userRepository;
 
-
+    @Autowired
+    IClienteFeignClient feignClient;
 
     @Autowired
     PasswordEncoder passwordEncoder;
@@ -27,7 +30,7 @@ public class IServiceUserApplication implements  IServiceUser{
     private String secretKey;
 
     @Override
-    public User registrarUser(String username, String password) {
+    public User registrarUser(String username, String password, ClienteRequest clienteRequest) {
         String encodedPassword = passwordEncoder.encode(password);
         User user = new User();
         user.setUsername(username);
