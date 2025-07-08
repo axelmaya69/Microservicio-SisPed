@@ -1,5 +1,6 @@
 package com.example.Auth_service.controller;
 
+import com.example.Auth_service.dtos.ClienteRequest;
 import com.example.Auth_service.dtos.LoginRequest;
 import com.example.Auth_service.dtos.LoginResponse;
 import com.example.Auth_service.dtos.RegisterRequest;
@@ -23,8 +24,17 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody RegisterRequest request){
-
-
+        serviceUser.registrarUser(
+                request.getUsername(),
+                request.getPassword(),
+                new ClienteRequest(
+                        request.getNombre(),
+                        request.getApellidoP(),
+                        request.getApellidoM(),
+                        request.getTelefono()
+                )
+                );
+        return ResponseEntity.ok("Usuario registrado con éxito");
     }
 
     @PostMapping("/login")
