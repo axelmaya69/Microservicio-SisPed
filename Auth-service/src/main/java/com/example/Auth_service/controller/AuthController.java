@@ -2,6 +2,7 @@ package com.example.Auth_service.controller;
 
 import com.example.Auth_service.dtos.LoginRequest;
 import com.example.Auth_service.dtos.LoginResponse;
+import com.example.Auth_service.dtos.RegisterRequest;
 import com.example.Auth_service.entity.User;
 import com.example.Auth_service.service.IServiceUser;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +22,9 @@ public class AuthController {
 
 
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody LoginRequest request){
-        User user = serviceUser.registrarUser(request.getUsername(), request.getPassword());
-        return ResponseEntity.ok("Usuario"+ user.getUsername()+" registrado");
+    public ResponseEntity<?> register(@RequestBody RegisterRequest request){
+
+
     }
 
     @PostMapping("/login")
