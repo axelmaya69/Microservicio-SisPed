@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient(name = "microservicio-cliente")
 public interface IClienteFeignClient {
 
-    @PostMapping("/cliente")
+    @PostMapping("/post")
     ClienteResponse crearCliente(@RequestBody ClienteRequest cliente);
 }
