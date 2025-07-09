@@ -1,9 +1,12 @@
 package com.microservicio_gateway.security;
 
 
+import io.jsonwebtoken.Jwts;
+import jakarta.ws.rs.core.HttpHeaders;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
@@ -34,6 +37,7 @@ public class JwtAuthFilter  implements GlobalFilter {
             exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
             return exchange.getResponse().setComplete();
         }
+        return chain.filter(exchange);
     }
 }
 
