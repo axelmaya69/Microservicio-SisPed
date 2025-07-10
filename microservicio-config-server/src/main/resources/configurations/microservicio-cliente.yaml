@@ -1,5 +1,5 @@
 server:
-  port: ${msvc-cliente-port}
+  port: 9090
 
 spring:
   application:
