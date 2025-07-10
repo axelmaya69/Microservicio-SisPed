@@ -1,5 +1,5 @@
 server:
-  port: ${msvc-pedido-port}
+  port: 9092
 
 spring:
   application:
