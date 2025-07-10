@@ -8,8 +8,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3308/pedidodb
-    username: ${msvc-cliente-user}
-    password: ${msvc-cliente-password}
+    username: userDev
+    password: 12345
 
   jpa:
     hibernate:
