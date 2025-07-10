@@ -1,5 +1,5 @@
 server:
-  port: ${msvc-producto-port}
+  port: 9091
 
 spring:
   application:
