@@ -3,7 +3,7 @@ eureka:
     register-with-eureka: false
 
 server:
-  port: ${msvc-gateway-port}
+  port: 8080
 
 spring:
   application:
@@ -28,4 +28,9 @@ spring:
           uri: http://localhost:9092
           predicates:
             - Path=/api/pedido/**,/api/pedidoproducto/**
+
+        - id: auth
+          uri: http://localhost:9093
+          predicates:
+            - Path=/auth/**
 
