@@ -1,17 +1,15 @@
 server:
-  port: ${msvc-auth-port}
+  port: 9093
 
 spring:
   application:
-    name: Auth-service
-jwt:
-  secret: ${jwt.secret}
+    name: microservicio-auth
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3310/userdb
-    username: ${msvc-auth-user}
-    password: ${msvc-cliente-password}
+    username: userDev
+    password: 12345
 
   jpa:
     hibernate:
