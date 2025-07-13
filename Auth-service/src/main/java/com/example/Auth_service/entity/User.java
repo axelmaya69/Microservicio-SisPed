@@ -18,7 +18,7 @@ public class User {
 
     private String username;
 
-    private String password; // encriptada
+    private String password; // password encriptada
 
     private String rol;
 
