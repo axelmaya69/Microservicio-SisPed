@@ -1,6 +1,5 @@
 package com.example.Auth_service.dtos;
 
-
 import lombok.Data;
 
 @Data
