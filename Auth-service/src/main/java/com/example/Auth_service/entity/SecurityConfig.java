@@ -24,6 +24,5 @@ public class SecurityConfig {
                         .requestMatchers("/auth/**").permitAll() // dejas públicos /auth/login, /auth/register, etc.
                         .anyRequest().authenticated()           // todo lo demás necesita auth
                 )
-                .formLogin(form -> form.disable()) // ❌ desactiva login por defecto
      
 }
