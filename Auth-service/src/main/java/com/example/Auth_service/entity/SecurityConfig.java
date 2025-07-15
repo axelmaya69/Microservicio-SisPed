@@ -25,6 +25,5 @@ public class SecurityConfig {
                         .anyRequest().authenticated()           // todo lo demás necesita auth
                 )
                 .formLogin(form -> form.disable()) // ❌ desactiva login por defecto
-                .build();
-    }
+     
 }
