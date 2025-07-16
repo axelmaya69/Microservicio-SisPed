@@ -30,9 +30,6 @@ public class AuthController {
                 new ClienteRequest(
                         request.getNombre(),
                         request.getApellidoP(),
-                        request.getApellidoM(),
-                        request.getTelefono()
-                )
                 
 
 }
