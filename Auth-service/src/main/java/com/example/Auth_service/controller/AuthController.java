@@ -42,9 +42,5 @@ public class AuthController {
         try{
             String token = serviceUser.logearUser(request.getUsername(), request.getPassword());
             return ResponseEntity.ok(new LoginResponse(token));
-        }catch (RuntimeException e){
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
-        }
-    }
-
+ 
 }
