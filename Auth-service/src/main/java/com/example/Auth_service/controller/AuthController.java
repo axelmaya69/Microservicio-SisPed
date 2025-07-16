@@ -33,9 +33,6 @@ public class AuthController {
                         request.getApellidoM(),
                         request.getTelefono()
                 )
-                );
-        return ResponseEntity.ok("Usuario registrado con éxito");
-    }
+                
 
- 
 }
