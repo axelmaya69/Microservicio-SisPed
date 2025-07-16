@@ -37,8 +37,5 @@ public class AuthController {
         return ResponseEntity.ok("Usuario registrado con éxito");
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody LoginRequest request){
-        try{
  
 }
