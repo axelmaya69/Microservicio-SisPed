@@ -28,8 +28,6 @@ public class AuthController {
                 request.getUsername(),
                 request.getPassword(),
                 new ClienteRequest(
-                        request.getNombre(),
-                        request.getApellidoP(),
                 
 
 }
