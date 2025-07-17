@@ -23,8 +23,6 @@ public class AuthController {
 
 
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody RegisterRequest request){
-        serviceUser.registrarUser(
-                
+    public Respo
 
 }
