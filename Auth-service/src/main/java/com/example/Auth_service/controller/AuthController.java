@@ -26,8 +26,6 @@ public class AuthController {
     public ResponseEntity<?> register(@RequestBody RegisterRequest request){
         serviceUser.registrarUser(
                 request.getUsername(),
-                request.getPassword(),
-                new ClienteRequest(
                 
 
 }
