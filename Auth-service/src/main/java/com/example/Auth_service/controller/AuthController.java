@@ -22,7 +22,6 @@ public class AuthController {
     IServiceUser serviceUser;
 
 
-    @PostMapping("/register")
-    public Respo
+    
 
 }
