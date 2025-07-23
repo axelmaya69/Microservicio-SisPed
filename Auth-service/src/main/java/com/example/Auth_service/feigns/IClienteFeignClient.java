@@ -1,6 +1,5 @@
 package com.example.Auth_service.feigns;
 
-
 import com.example.Auth_service.dtos.ClienteRequest;
 import com.example.Auth_service.dtos.ClienteResponse;
 import org.springframework.cloud.openfeign.FeignClient;
