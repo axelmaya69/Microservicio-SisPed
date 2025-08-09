@@ -31,7 +31,7 @@ public class AuthenticationService {
         User user = new User();
                 user.setFullName(input.getFullName());
                 user.setEmail(input.getEmail());
-                user.setPassword(input.getPassword());
+                user.setPassword(passwordEncoder.encode(input.getPassword()));
         return iUserRepository.save(user);
     }
 
