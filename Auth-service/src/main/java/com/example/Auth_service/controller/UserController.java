@@ -2,6 +2,7 @@ package com.example.Auth_service.controller;
 
 
 import com.example.Auth_service.entity.User;
+import com.example.Auth_service.service.UserServices;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -15,9 +16,9 @@ import java.util.List;
 @RestController
 public class UserController {
 
-    private final UserService userService;
+    private final UserServices userService;
 
-    public UserController(UserService userService){
+    public UserController(UserServices userService){
         this.userService= userService;
     }
 
