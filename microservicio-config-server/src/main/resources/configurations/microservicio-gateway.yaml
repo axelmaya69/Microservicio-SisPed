@@ -30,6 +30,8 @@ spring:
           uri: http://localhost:9092
           predicates:
             - Path=/api/pedido/**,/api/pedidoproducto/**
+          filters:
+            - JwtAuthenticationFilter
 
         - id: auth
           uri: http://localhost:9093
