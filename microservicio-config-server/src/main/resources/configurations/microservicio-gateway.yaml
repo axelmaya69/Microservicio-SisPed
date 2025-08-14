@@ -25,7 +25,9 @@ spring:
           uri: http://localhost:9091
           predicates:
             - Path=/api/producto/**
-
+          filters:
+            - JwtAuthenticationFilter
+          
         - id: pedido
           uri: http://localhost:9092
           predicates:
