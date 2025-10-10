@@ -59,7 +59,6 @@ public class GlobalExceptionHandler {
             errorDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(500),exception.getMessage());
             errorDetail.setProperty("Descripcion","Error interno del servidor desconocido");
         }
-
         return errorDetail;
     }
 }
