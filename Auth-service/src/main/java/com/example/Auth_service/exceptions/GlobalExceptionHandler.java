@@ -39,7 +39,6 @@ public class GlobalExceptionHandler {
             errorDetail.setProperty("Descripcion","No tienes autorizacion para acceder a este recurso");
 
             return errorDetail;
-
         }
 
         if (exception instanceof SignatureException){
