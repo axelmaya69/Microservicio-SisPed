@@ -41,7 +41,6 @@ public class User implements UserDetails {
     @Setter
     private Date createdAt;
 
-
     @UpdateTimestamp
     @Column(name = "updated_at")
     private Date updatedAt;
