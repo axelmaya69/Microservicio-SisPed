@@ -8,7 +8,6 @@ import org.springframework.security.authentication.AccountStatusException;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-
 import java.nio.file.AccessDeniedException;
 import java.security.SignatureException;
 
@@ -40,7 +39,6 @@ public class GlobalExceptionHandler {
             errorDetail.setProperty("Descripcion","No tienes autorizacion para acceder a este recurso");
 
             return errorDetail;
-
         }
 
         if (exception instanceof SignatureException){
@@ -61,7 +59,6 @@ public class GlobalExceptionHandler {
             errorDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(500),exception.getMessage());
             errorDetail.setProperty("Descripcion","Error interno del servidor desconocido");
         }
-
         return errorDetail;
     }
 }
