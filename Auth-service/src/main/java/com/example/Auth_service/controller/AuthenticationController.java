@@ -1,6 +1,5 @@
 package com.example.Auth_service.controller;
 
-
 import com.example.Auth_service.dtos.LoginRequest;
 import com.example.Auth_service.dtos.LoginResponse;
 import com.example.Auth_service.dtos.RegisterRequest;
