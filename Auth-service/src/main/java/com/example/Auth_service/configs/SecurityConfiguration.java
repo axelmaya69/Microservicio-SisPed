@@ -19,7 +19,7 @@ public class SecurityConfiguration {
 
     private final AuthenticationProvider authenticationProvider;
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
-    
+
     public SecurityConfiguration(AuthenticationProvider authenticationProvider, JwtAuthenticationFilter jwtAuthenticationFilter) {
         this.authenticationProvider = authenticationProvider;
         this.jwtAuthenticationFilter = jwtAuthenticationFilter;
@@ -54,5 +54,6 @@ public class SecurityConfiguration {
         source.registerCorsConfiguration("/**",corsConfiguration);
 
         return source;
+
     }
 }
