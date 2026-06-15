@@ -2,23 +2,27 @@ package com.example.Auth_service.exceptions;
 
 
 import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.security.SignatureException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ProblemDetail;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.AccountStatusException;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.springframework.security.access.AccessDeniedException;
-import io.jsonwebtoken.security.SignatureException;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+
+    private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     @ExceptionHandler(Exception.class)
     public ProblemDetail handleSecurityException(Exception exception){
         ProblemDetail errorDetail = null;
 
-        exception.printStackTrace();
+        log.error("Security exception", exception);
 
         if(exception instanceof BadCredentialsException){
             errorDetail= ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(401),exception.getMessage());

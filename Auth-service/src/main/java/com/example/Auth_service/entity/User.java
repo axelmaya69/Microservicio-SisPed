@@ -1,8 +1,6 @@
 package com.example.Auth_service.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
@@ -42,6 +40,8 @@ public class User implements UserDetails {
 
     @UpdateTimestamp
     @Column(name = "updated_at")
+    @Getter
+    @Setter
     private Date updatedAt;
 
     @Override
