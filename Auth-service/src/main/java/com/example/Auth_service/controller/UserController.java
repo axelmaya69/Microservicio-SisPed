@@ -1,6 +1,7 @@
 package com.example.Auth_service.controller;
 
 
+import com.example.Auth_service.dtos.UserResponse;
 import com.example.Auth_service.entity.User;
 import com.example.Auth_service.service.UserServices;
 import org.springframework.http.ResponseEntity;
@@ -24,18 +25,27 @@ public class UserController {
     }
 
     @GetMapping("/me")
-    public ResponseEntity<User> authenticatedUser(){
-        Authentication authentication= SecurityContextHolder.getContext().getAuthentication();
-
+    public ResponseEntity<UserResponse> authenticatedUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User currentUser = (User) authentication.getPrincipal();
-
-        return ResponseEntity.ok(currentUser);
+        UserResponse response = new UserResponse();
+        response.setId(currentUser.getId());
+        response.setEmail(currentUser.getEmail());
+        response.setFullName(currentUser.getFullName());
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<User>> allUsers(){
-        List <User> users = userService.allUsers();
-
+    public ResponseEntity<List<UserResponse>> allUsers() {
+        List<UserResponse> users = userService.allUsers().stream()
+                .map(u -> {
+                    UserResponse r = new UserResponse();
+                    r.setId(u.getId());
+                    r.setEmail(u.getEmail());
+                    r.setFullName(u.getFullName());
+                    return r;
+                })
+                .toList();
         return ResponseEntity.ok(users);
     }
 }

@@ -2,6 +2,7 @@ package com.example.Auth_service.controller;
 import com.example.Auth_service.dtos.LoginRequest;
 import com.example.Auth_service.dtos.LoginResponse;
 import com.example.Auth_service.dtos.RegisterRequest;
+import com.example.Auth_service.dtos.UserResponse;
 import com.example.Auth_service.entity.User;
 import com.example.Auth_service.service.AuthenticationService;
 import com.example.Auth_service.service.JwtService;
@@ -26,10 +27,13 @@ public class AuthenticationController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<User> register (@RequestBody RegisterRequest registerRequest){
+    public ResponseEntity<UserResponse> register(@RequestBody RegisterRequest registerRequest) {
         User registerUser = authenticationService.signup(registerRequest);
-
-        return ResponseEntity.ok(registerUser);
+        UserResponse response = new UserResponse();
+        response.setId(registerUser.getId());
+        response.setEmail(registerUser.getEmail());
+        response.setFullName(registerUser.getFullName());
+        return ResponseEntity.ok(response);
     }
 
     @PostMapping("/login")
