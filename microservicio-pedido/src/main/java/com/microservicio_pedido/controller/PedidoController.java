@@ -1,6 +1,7 @@
 package com.microservicio_pedido.controller;
 
 
+import com.microservicio_pedido.entity.EstadoPedido;
 import com.microservicio_pedido.entity.Pedido;
 import com.microservicio_pedido.service.IPedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +52,12 @@ public class PedidoController {
     public ResponseEntity<?> editarPedido(@PathVariable int idPedido, @RequestBody Pedido pedido){
         Pedido putPedido = pedidoService.editarPedido(idPedido, pedido);
         return ResponseEntity.ok("editado");
+    }
+
+    @PutMapping("/estado/{idPedido}/{estado}")
+    public ResponseEntity<?> actualizarEstado(@PathVariable int idPedido, @PathVariable EstadoPedido estado){
+        Pedido pedido = pedidoService.actualizarEstado(idPedido, estado);
+        return ResponseEntity.ok(pedido);
     }
 
     @DeleteMapping("/delete/{idPedido}")

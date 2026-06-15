@@ -16,5 +16,6 @@ public interface IProductoServ {
 
     void eliminarProducto(int idProducto);
 
+    Producto reducirStock(int idProducto, int cantidad);
 
 }

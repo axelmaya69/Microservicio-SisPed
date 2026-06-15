@@ -3,6 +3,7 @@ package com.microservicio_pedido.service;
 import com.microservicio_pedido.DTO.*;
 import com.microservicio_pedido.clientes.IProductoFeignCliente;
 import com.microservicio_pedido.clientes.IClienteFeignCliente;
+import com.microservicio_pedido.entity.EstadoPedido;
 import com.microservicio_pedido.entity.Pedido;
 import com.microservicio_pedido.entity.PedidoProducto;
 import com.microservicio_pedido.http.responses.ClienteByPedidoResponse;
@@ -112,6 +113,14 @@ public class PedidoServiceImplementation implements IPedidoService{
 
     @Override
     public void eliminarPedido(int idPedido) {
-    iPedido.deleteById(idPedido);
+        iPedido.deleteById(idPedido);
+    }
+
+    @Override
+    public Pedido actualizarEstado(int idPedido, EstadoPedido estado) {
+        Pedido pedido = iPedido.findById(idPedido)
+                .orElseThrow(() -> new RuntimeException("Pedido no encontrado con id: " + idPedido));
+        pedido.setEstado(estado);
+        return iPedido.save(pedido);
     }
 }

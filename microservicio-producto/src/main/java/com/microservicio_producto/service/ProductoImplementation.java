@@ -43,6 +43,18 @@ public class ProductoImplementation implements IProductoServ {
     }
     @Override
     public void eliminarProducto(int idProducto) {
-    IntServ.deleteById(idProducto);
+        IntServ.deleteById(idProducto);
+    }
+
+    @Override
+    public Producto reducirStock(int idProducto, int cantidad) {
+        Producto producto = IntServ.findById(idProducto)
+                .orElseThrow(() -> new RuntimeException("Producto no encontrado con id: " + idProducto));
+        if (producto.getStock() < cantidad) {
+            throw new RuntimeException("Stock insuficiente para el producto id: " + idProducto +
+                    ". Stock disponible: " + producto.getStock() + ", solicitado: " + cantidad);
+        }
+        producto.setStock(producto.getStock() - cantidad);
+        return IntServ.save(producto);
     }
 }

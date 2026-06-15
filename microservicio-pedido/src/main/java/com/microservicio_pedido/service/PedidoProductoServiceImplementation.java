@@ -1,6 +1,8 @@
 package com.microservicio_pedido.service;
 
 import com.microservicio_pedido.DTO.PedidoProductoDTO;
+import com.microservicio_pedido.DTO.ProductoDTO;
+import com.microservicio_pedido.clientes.IProductoFeignCliente;
 import com.microservicio_pedido.entity.PedidoProducto;
 import com.microservicio_pedido.repository.IPedidoProducto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +17,17 @@ public class PedidoProductoServiceImplementation implements IPedidoProductoServi
     @Autowired
     private IPedidoProducto IPP;
 
+    @Autowired
+    private IProductoFeignCliente productoFeignCliente;
+
     @Override
     public PedidoProducto crearPedidoProducto(PedidoProducto pedidoProducto) {
+        ProductoDTO producto = productoFeignCliente.getProductoById(pedidoProducto.getIdProducto());
+        if (producto.getStock() < pedidoProducto.getCantidad()) {
+            throw new RuntimeException("Stock insuficiente para el producto '" + producto.getNombre() +
+                    "'. Disponible: " + producto.getStock() + ", solicitado: " + pedidoProducto.getCantidad());
+        }
+        productoFeignCliente.reducirStock(pedidoProducto.getIdProducto(), pedidoProducto.getCantidad());
         return IPP.save(pedidoProducto);
     }
 

@@ -8,37 +8,3 @@ server:
 spring:
   application:
     name: microservicio-gateway
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-      routes:
-        - id: cliente
-          uri: http://localhost:9090
-          predicates:
-            - Path=/api/cliente/**
-          filters:
-            - JwtAuthenticationFilter
-
-        - id: producto
-          uri: http://localhost:9091
-          predicates:
-            - Path=/api/producto/**
-          filters:
-            - JwtAuthenticationFilter
-
-        - id: pedido
-          uri: http://localhost:9092
-          predicates:
-            - Path=/api/pedido/**,/api/pedidoproducto/**
-          filters:
-            - JwtAuthenticationFilter
-
-        - id: auth
-          uri: http://localhost:9093
-          predicates:
-            - Path=/auth/**
-          filters:
-            - JwtAuthenticationFilter
-

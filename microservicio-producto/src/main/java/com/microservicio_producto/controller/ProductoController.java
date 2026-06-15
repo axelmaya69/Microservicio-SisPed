@@ -37,10 +37,16 @@ public class ProductoController {
         return ResponseEntity.ok(crearProducto);
     }
 
-    @PutMapping("/put/idProducto")
+    @PutMapping("/put/{idProducto}")
     public ResponseEntity<?> editarProducto(@PathVariable int idProducto, @RequestBody Producto producto){
         Producto updateService = productoServ.actualizarProductos(idProducto, producto);
         return ResponseEntity.ok("Editado");
+    }
+
+    @PutMapping("/reducir-stock/{idProducto}/{cantidad}")
+    public ResponseEntity<?> reducirStock(@PathVariable int idProducto, @PathVariable int cantidad){
+        Producto producto = productoServ.reducirStock(idProducto, cantidad);
+        return ResponseEntity.ok(producto);
     }
 
     @DeleteMapping("/delete/{idProducto}")

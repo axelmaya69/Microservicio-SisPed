@@ -23,4 +23,6 @@ public class Producto {
 
     private float precio;
 
+    private int stock;
+
 }

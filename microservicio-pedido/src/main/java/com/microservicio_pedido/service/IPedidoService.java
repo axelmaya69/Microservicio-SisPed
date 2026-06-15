@@ -1,5 +1,6 @@
 package com.microservicio_pedido.service;
 
+import com.microservicio_pedido.entity.EstadoPedido;
 import com.microservicio_pedido.entity.Pedido;
 import com.microservicio_pedido.http.responses.ClienteByPedidoResponse;
 import com.microservicio_pedido.http.responses.ProductoByPedidoProductoResponse;
@@ -21,4 +22,6 @@ public interface IPedidoService {
     Pedido editarPedido(int idPedido, Pedido pedido);
 
     void eliminarPedido(int idPedido);
+
+    Pedido actualizarEstado(int idPedido, EstadoPedido estado);
 }
